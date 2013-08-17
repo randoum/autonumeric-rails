@@ -39,7 +39,7 @@ with its default values:
 You can also pass autoNumeric configuration parameters directly with a Hash in your HTML tag:
 
     <%= form_for @model do |f| %>
-        <%= f.text_field :field, data: {autonumeric: {aSign: 'USD ', mDec: 0} %>
+        <%= f.text_field :field, data: {autonumeric: {aSign: 'USD ', mDec: 0}} %>
     <% end %>
     
 See autoNumeric pages (links above) for all details on configuration and options
