@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="RUBY_MODULE" version="4">
+  <component name="FacetManager">
+    <facet type="gem" name="Gem">
+      <configuration>
+        <option name="GEM_APP_ROOT_PATH" value="$MODULE_DIR$" />
+        <option name="GEM_APP_TEST_PATH" value="" />
+        <option name="GEM_APP_LIB_PATH" value="$MODULE_DIR$/lib" />
+      </configuration>
+    </facet>
+  </component>
+  <component name="NewModuleRootManager">
+    <content url="file://$MODULE_DIR$" />
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" scope="PROVIDED" name="actionpack (v4.0.0, rbenv: 1.9.3-p392) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="activesupport (v4.0.0, rbenv: 1.9.3-p392) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="atomic (v1.1.12, rbenv: 1.9.3-p392) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="builder (v3.1.4, rbenv: 1.9.3-p392) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="bundler (v1.3.4, rbenv: 1.9.3-p392) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="erubis (v2.7.0, rbenv: 1.9.3-p392) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="i18n (v0.6.4, rbenv: 1.9.3-p392) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="jquery-rails (v3.0.4, rbenv: 1.9.3-p392) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="minitest (v4.7.5, rbenv: 1.9.3-p392) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="multi_json (v1.7.8, rbenv: 1.9.3-p392) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="rack (v1.5.2, rbenv: 1.9.3-p392) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="rack-test (v0.6.2, rbenv: 1.9.3-p392) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="railties (v4.0.0, rbenv: 1.9.3-p392) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="rake (v10.1.0, rbenv: 1.9.3-p392) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="thor (v0.18.1, rbenv: 1.9.3-p392) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="thread_safe (v0.1.2, rbenv: 1.9.3-p392) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="tzinfo (v0.3.37, rbenv: 1.9.3-p392) [gem]" level="application" />
+  </component>
+</module>
+
