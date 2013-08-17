@@ -1,6 +1,16 @@
-# Autonumeric::Rails
+# autonumeric-rails
 
-TODO: Write a gem description
+Wrap up the excelent autoNumeric.js javascript library 
+
+autoNumeric is a jQuery plugin that automatically formats currency (money) and numbers as you type on form inputs.
+It supports most International numeric formats and currency signs including those used in Europe, North and 
+South America, Asia and India (lakhs**).
+
+autoNumeric.js github repository and documentation [https://github.com/BobKnothe/autoNumeric] (https://github.com/BobKnothe/autoNumeric)
+
+autoNumeric.js home page and settings generator [http://www.decorplanit.com/plugin] (http://www.decorplanit.com/plugin)
+
+The autonumeric-rails simply wrap up autoNumeric.js and in addition provides ujs flavor to autoNumeric.js
 
 ## Installation
 
@@ -12,14 +22,28 @@ And then execute:
 
     $ bundle
 
-Or install it yourself as:
+Then add in your `javascript.js` manifest:
 
-    $ gem install autonumeric-rails
+    //= require jquery
+    //= require autonumeric
 
 ## Usage
 
-TODO: Write usage instructions here
+Simply add `data-autonumeric` attribute to your HTML tag to initialize autoNumeric  
+with its default values:
 
+    <%= form_for @model do |f| %>
+        <%= f.text_field :field, data: {autonumeric: true} %>
+    <% end %>
+
+You can also pass autoNumeric configuration parameters directly with a Hash in your HTML tag:
+
+    <%= form_for @model do |f| %>
+        <%= f.text_field :field, data: {autonumeric: {aSign: 'USD ', mDec: 0} %>
+    <% end %>
+    
+See autoNumeric pages (links above) for all details on configuration and options
+    
 ## Contributing
 
 1. Fork it
