@@ -8,7 +8,7 @@ Gem::Specification.new do |spec|
   spec.version       = Autonumeric::Rails::VERSION
   spec.authors       = ['randoum']
   spec.email         = ['randoum@gmail.com']
-  spec.summary       = %q{Wrap autoNumeric.js library in a ready-to-use rails gem}
+  spec.summary       = %q{Wrap autoNumeric.js library ready-to-use for rails}
   spec.description   = %q{Rails ready-to-use autoNumeric.js library that automatically formats currency and numbers. All credits goes to the library creator BobKnothe}
   spec.homepage      = 'https://github.com/randoum/autonumeric-rails'
   spec.license       = 'MIT'
