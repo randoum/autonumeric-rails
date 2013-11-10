@@ -2,7 +2,7 @@
  * autoNumeric.js
  * @author: Bob Knothe
  * @author: Sokolov Yura aka funny_falcon
- * @version: 1.9.15 - 2013-08-05 GMT 6:30 PM
+ * @version: 1.9.17 - 2013-09-28 GMT 9:00 AM
  *
  * Created by Robert J. Knothe on 2010-10-25. Please report any bugs to https://github.com/BobKnothe/autoNumeric
  * Created by Sokolov Yura on 2010-11-07
@@ -93,7 +93,6 @@
             }
         });
     }
-
     function convertKeyToNumber(settings, key) {
         if (typeof (settings[key]) === 'string') {
             settings[key] *= 1;
@@ -101,7 +100,7 @@
     }
     /**
      * Preparing user defined options for further usage
-     * merge them with defaults appropriatly
+     * merge them with defaults appropriately
      */
     function autoCode($this, settings) {
         runCallbacks($this, settings);
@@ -231,19 +230,20 @@
         return s;
     }
     /**
-     * function to handle numbers less than 0 that are stored in Exponential notaion ex: .0000001 stored as 1e-7
+     * function to handle numbers less than 0 that are stored in Exponential notation ex: .0000001 stored as 1e-7
      */
-    function checkValue(value) {
-        var decimal = value.indexOf('.');
+    function checkValue(value, settings) {
+        var decimal = value.indexOf('.'),
+            checkSmall = +value;
         if (decimal !== -1) {
-            if (decimal === 1 && value.charAt(0) === '0') {
+            if (checkSmall < 0.000001 && checkSmall > -1) {
                 value = +value;
                 if (value < 0.000001 && value > 0) {
-                    value = (value + 1).toString();
+                    value = (value + 10).toString();
                     value = value.substring(1);
                 }
                 if (value < 0 && value > -1) {
-                    value = (value - 1).toString();
+                    value = (value - 10).toString();
                     value = '-' + value.substring(2);
                 }
                 value = value.toString();
@@ -259,7 +259,7 @@
                 }
             }
         }
-        return value.replace(/^0*(\d)/, '$1');
+        return (settings.lZero === 'keep') ? value : value.replace(/^0*(\d)/, '$1');
     }
     /**
      * prepare real number to be converted to our format
@@ -336,7 +336,7 @@
                 ivSplit[1] = ivSplit[1].substring(0, settings.mDec);
             } /** joins the whole number with the deciaml value */
             iv = s + settings.aDec + ivSplit[1];
-        } else { /** if whole numers only */
+        } else { /** if whole numbers only */
         iv = s;
         }
         if (settings.aSign) {
@@ -355,8 +355,8 @@
     /**
      * round number after setting by pasting or $().autoNumericSet()
      * private function for round the number
-     * please note this handled as text - Javascript math function can return inaccurate values
-     * also this offers multiple rounding metods that are not easily accomplished in javascript
+     * please note this handled as text - JavaScript math function can return inaccurate values
+     * also this offers multiple rounding methods that are not easily accomplished in JavaScript
      */
     function autoRound(iv, settings) { /** value to string */
     iv = (iv === '') ? '0' : iv.toString();
@@ -427,7 +427,7 @@
         } /** Reconstruct the string, converting any 10's to 0's */
         ivArray = ivArray.slice(0, rLength + 1);
         ivRounded = truncateZeros(ivArray.join('')); /** return rounded value */
-        return nSign + ivRounded;
+        return (+ivRounded === 0) ? ivRounded : nSign + ivRounded;
     }
     /**
      * Holder object for field properties
@@ -447,7 +447,7 @@
             this.ctrlKey = e.ctrlKey;
             this.cmdKey = e.metaKey;
             this.shiftKey = e.shiftKey;
-            this.selection = getElementSelection(this.that); /** keypress event overwrites meaningfull value of e.keyCode */
+            this.selection = getElementSelection(this.that); /** keypress event overwrites meaningful value of e.keyCode */
             if (e.type === 'keydown' || e.type === 'keyup') {
                 this.kdCode = e.keyCode;
             }
@@ -549,7 +549,7 @@
         },
         /**
          * expands selection to cover whole sign
-         * prevents partial deletion/copying/overwritting of a sign
+         * prevents partial deletion/copying/overwriting of a sign
          */
         expandSelectionOnSign: function (setReal) {
             var sign_position = this.signPosition(),
@@ -673,7 +673,7 @@
                 cCode = String.fromCharCode(this.which),
                 parts = this.getBeforeAfterStriped(),
                 left = parts[0],
-                right = parts[1]; /** start rules when the decimal charactor key is pressed */
+                right = parts[1]; /** start rules when the decimal character key is pressed */
             /** always use numeric pad dot to insert decimal separator */
             if (cCode === settingsClone.aDec || (settingsClone.altDec && cCode === settingsClone.altDec) || ((cCode === '.' || cCode === ',') && this.kdCode === 110)) { /** do not allow decimal character if no decimal part allowed */
                 if (!settingsClone.mDec || !settingsClone.aDec) {
@@ -698,7 +698,7 @@
             if (cCode === '-' || cCode === '+') { /** prevent minus if not allowed */
                 if (!settingsClone.aNeg) {
                     return true;
-                } /** carret is always after minus */
+                } /** caret is always after minus */
                 if (left === '' && right.indexOf(settingsClone.aNeg) > -1) {
                     left = settingsClone.aNeg;
                     right = right.substring(1, right.length);
@@ -807,7 +807,7 @@
                 var $this = $(this),
                     settings = $this.data('autoNumeric'), /** attempt to grab 'autoNumeric' settings, if they don't exist returns "undefined". */
                         tagData = $this.data(); /** attempt to grab HTML5 data, if they don't exist we'll get "undefined".*/
-                if (typeof settings !== 'object') { /** If we could't grab settings, create them from defaults and passed options. */
+                if (typeof settings !== 'object') { /** If we couldn't grab settings, create them from defaults and passed options. */
                 var defaults = {
                         /** allowed numeric values
                          * please do not modify
@@ -857,7 +857,7 @@
                          * value must be smaller than vMax
                          */
                         vMin: '0.00',
-                        /** max number of decimal places = used to overide deciaml places set by the vMin & vMax values
+                        /** max number of decimal places = used to override decimal places set by the vMin & vMax values
                          * value must be enclosed in quotes example mDec: '3',
                          * This can also set the value via a call back function mDec: 'css:#
                          */
@@ -869,7 +869,7 @@
                          * mRound: 'a', Round-Half-Down Asymmetric (lower case a)
                          * mRound: 'B', Round-Half-Even "Bankers Rounding"
                          * mRound: 'U', Round Up "Round-Away-From-Zero"
-                         * mRound: 'D', Round Down "Round-Toward-Zero" - same as trancate
+                         * mRound: 'D', Round Down "Round-Toward-Zero" - same as truncate
                          * mRound: 'C', Round to Ceiling "Toward Positive Infinity"
                          * mRound: 'F', Round to Floor "Toward Negative Infinity"
                          */
@@ -899,7 +899,7 @@
                          */
                         lZero: 'allow',
                         /** determine if the default value will be formatted on page ready.
-                         * true = atomatically formats the default value on page ready
+                         * true = automatically formats the default value on page ready
                          * false = will not format the default value
                          */
                         aForm: true,
@@ -908,7 +908,7 @@
                     };
                     settings = $.extend({}, defaults, tagData, options); /** Merge defaults, tagData and options */
                     if (settings.aDec === settings.aSep) {
-                        $.error("autoNumeric will not function properly when the decimal character aDec: '" + settings.aDec + "' and thousand seperater aSep: '" + settings.aSep + "' are the same character");
+                        $.error("autoNumeric will not function properly when the decimal character aDec: '" + settings.aDec + "' and thousand separator aSep: '" + settings.aSep + "' are the same character");
                         return this;
                     }
                     $this.data('autoNumeric', settings); /** Save our new settings */
@@ -946,7 +946,7 @@
                 $this.on('keydown.autoNumeric', function (e) {
                     holder = getHolder($this);
                     if (holder.settings.aDec === holder.settings.aSep) {
-                        $.error("autoNumeric will not function properly when the decimal character aDec: '" + holder.settings.aDec + "' and thousand seperater aSep: '" + holder.settings.aSep + "' are the same character");
+                        $.error("autoNumeric will not function properly when the decimal character aDec: '" + holder.settings.aDec + "' and thousand separator aSep: '" + holder.settings.aSep + "' are the same character");
                         return this;
                     }
                     if (holder.that.readOnly) {
@@ -991,7 +991,6 @@
                             return false;
                         }
                         holder.formatted = false;
-
                     });
                     $this.on('keyup.autoNumeric', function (e) {
                         var holder = getHolder($this);
@@ -1096,7 +1095,7 @@
                 settings = $.extend(settings, options);
                 getHolder($this, settings, true);
                 if (settings.aDec === settings.aSep) {
-                    $.error("autoNumeric will not function properly when the decimal character aDec: '" + settings.aDec + "' and thousand seperater aSep: '" + settings.aSep + "' are the same character");
+                    $.error("autoNumeric will not function properly when the decimal character aDec: '" + settings.aDec + "' and thousand separator aSep: '" + settings.aSep + "' are the same character");
                     return this;
                 }
                 $this.data('autoNumeric', settings);
@@ -1106,7 +1105,7 @@
                 return;
             });
         },
-        /** returns a formated strings for "input:text" fields Uses jQuery's .val() method*/
+        /** returns a formatted strings for "input:text" fields Uses jQuery's .val() method*/
         set: function (valueIn) {
             return $(this).each(function () {
                 var $this = autoGet($(this)),
@@ -1117,7 +1116,7 @@
                     $.error("You must initialize autoNumeric('init', {options}) prior to calling the 'set' method");
                     return this;
                 }
-                /** allows locale decimal seperator to be a comma */
+                /** allows locale decimal separator to be a comma */
                 if (testValue === $this.attr('value')) {
                     value = value.replace(',', '.');
                 }
@@ -1129,7 +1128,7 @@
                 if (!$.isNumeric(+value)) {
                     return '';
                 }
-                value = checkValue(value);
+                value = checkValue(value, settings);
                 settings.oEvent = 'set';
                 settings.lastSetValue = value; /** saves the unrounded value from the set method - $('selector').data('autoNumeric').lastSetValue; - helpful when you need to change the rounding accuracy*/
                 value.toString();
@@ -1151,7 +1150,7 @@
                 return false;
             });
         },
-        /** method to get the unformated value from a specific input field, returns a numeric value */
+        /** method to get the unformatted value from a specific input field, returns a numeric value */
         get: function () {
             var $this = autoGet($(this)),
                 settings = $this.data('autoNumeric');
@@ -1186,10 +1185,10 @@
             if (settings.lZero === 'keep') {
                 return getValue;
             }
-            getValue = checkValue(getValue);
+            getValue = checkValue(getValue, settings);
             return getValue; /** returned Numeric String */
         },
-        /** method to get the unformated value from multiple fields */
+        /** method to get the unformatted value from multiple fields */
         getString: function () {
             var isAutoNumeric = false,
                 $this = autoGet($(this)),
@@ -1213,7 +1212,7 @@
             $.error("You must initialize autoNumeric('init', {options}) prior to calling the 'getString' method");
             return this;
         },
-        /** method to get the unformated value from multiple fields */
+        /** method to get the unformatted value from multiple fields */
         getArray: function () {
             var isAutoNumeric = false,
                 $this = autoGet($(this)),
