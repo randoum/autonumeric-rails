@@ -36,18 +36,18 @@
 jQuery(function() {
     var auto_numeric_init, update_numeric_value;
     update_numeric_value = function(input) {
-        return input.next().val(input.autoNumeric('get'));
+        input.next().val(input.autoNumeric('get'));
     };
     auto_numeric_init = function(input) {
         var hidden;
         hidden = $('<input>').attr('type', 'hidden').attr('id', input.attr('id') + '_val').attr('name', input.attr('name'));
         hidden.insertAfter(input);
         input.autoNumeric('init', $.parseJSON(input.attr('data-autonumeric')));
-        return input.on('keyup', function() {
-            return update_numeric_value(input);
+        input.on('keyup', function() {
+            update_numeric_value(input);
         });
     };
-    return $('input[data-autonumeric]').each(function() {
-        return auto_numeric_init($(this));
+    $('input[data-autonumeric]').each(function() {
+        auto_numeric_init($(this));
     });
 });
