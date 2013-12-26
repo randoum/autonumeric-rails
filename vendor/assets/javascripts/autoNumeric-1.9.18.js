@@ -1,37 +1,37 @@
 /**
- * autoNumeric.js
- * @author: Bob Knothe
- * @author: Sokolov Yura aka funny_falcon
- * @version: 1.9.17 - 2013-09-28 GMT 9:00 AM
- *
- * Created by Robert J. Knothe on 2010-10-25. Please report any bugs to https://github.com/BobKnothe/autoNumeric
- * Created by Sokolov Yura on 2010-11-07
- *
- * Copyright (c) 2011 Robert J. Knothe http://www.decorplanit.com/plugin/
- *
- * The MIT License (http://www.opensource.org/licenses/mit-license.php)
- *
- * Permission is hereby granted, free of charge, to any person
- * obtaining a copy of this software and associated documentation
- * files (the "Software"), to deal in the Software without
- * restriction, including without limitation the rights to use,
- * copy, modify, merge, publish, distribute, sublicense, and/or sell
- * copies of the Software, and to permit persons to whom the
- * Software is furnished to do so, subject to the following
- * conditions:
- *
- * The above copyright notice and this permission notice shall be
- * included in all copies or substantial portions of the Software.
- *
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
- * EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES
- * OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
- * NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
- * HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
- * WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
- * FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
- * OTHER DEALINGS IN THE SOFTWARE.
- */
+* autoNumeric.js
+* @author: Bob Knothe
+* @author: Sokolov Yura aka funny_falcon
+* @version: 1.9.18 - 2013-12-03 GMT 9:00 PM
+*
+* Created by Robert J. Knothe on 2010-10-25. Please report any bugs to https://github.com/BobKnothe/autoNumeric
+* Created by Sokolov Yura on 2010-11-07
+*
+* Copyright (c) 2011 Robert J. Knothe http://www.decorplanit.com/plugin/
+*
+* The MIT License (http://www.opensource.org/licenses/mit-license.php)
+*
+* Permission is hereby granted, free of charge, to any person
+* obtaining a copy of this software and associated documentation
+* files (the "Software"), to deal in the Software without
+* restriction, including without limitation the rights to use,
+* copy, modify, merge, publish, distribute, sublicense, and/or sell
+* copies of the Software, and to permit persons to whom the
+* Software is furnished to do so, subject to the following
+* conditions:
+*
+* The above copyright notice and this permission notice shall be
+* included in all copies or substantial portions of the Software.
+*
+* THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+* EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES
+* OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+* NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
+* HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
+* WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+* FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
+* OTHER DEALINGS IN THE SOFTWARE.
+*/
 (function ($) {
     "use strict";
     /*jslint browser: true*/
@@ -170,7 +170,7 @@
                 parts[0] = parts[0].replace('-', '');
             }
             if (parts[0].length > settings.mInt && parts[0].charAt(0) === '0') { /** strip leading zero if need */
-            parts[0] = parts[0].slice(1);
+                parts[0] = parts[0].slice(1);
             }
             s = nSign + parts.join(settings.aDec);
         }
@@ -185,7 +185,7 @@
      * places or removes brackets on negative values
      */
     function negativeBracket(s, nBracket, oEvent) { /** oEvent = settings.oEvent */
-    nBracket = nBracket.split(',');
+        nBracket = nBracket.split(',');
         if (oEvent === 'set' || oEvent === 'focusout') {
             s = s.replace('-', '');
             s = nBracket[0] + s + nBracket[1];
@@ -328,7 +328,7 @@
         var s = ivSplit[0];
         if (settings.aSep) {
             while (digitalGroup.test(s)) { /** re-inserts the thousand sepparator via a regualer expression */
-            s = s.replace(digitalGroup, '$1' + settings.aSep + '$2');
+                s = s.replace(digitalGroup, '$1' + settings.aSep + '$2');
             }
         }
         if (settings.mDec !== 0 && ivSplit.length > 1) {
@@ -337,7 +337,7 @@
             } /** joins the whole number with the deciaml value */
             iv = s + settings.aDec + ivSplit[1];
         } else { /** if whole numbers only */
-        iv = s;
+            iv = s;
         }
         if (settings.aSign) {
             var has_aNeg = iv.indexOf(settings.aNeg) !== -1;
@@ -348,7 +348,7 @@
             }
         }
         if (settings.oEvent === 'set' && testNeg < 0 && settings.nBracket !== null) { /** removes the negative sign and places brackets */
-        iv = negativeBracket(iv, settings.nBracket, settings.oEvent);
+            iv = negativeBracket(iv, settings.nBracket, settings.oEvent);
         }
         return iv;
     }
@@ -359,14 +359,14 @@
      * also this offers multiple rounding methods that are not easily accomplished in JavaScript
      */
     function autoRound(iv, settings) { /** value to string */
-    iv = (iv === '') ? '0' : iv.toString();
+        iv = (iv === '') ? '0' : iv.toString();
         convertKeyToNumber(settings, 'mDec'); /** set mDec to number needed when mDec set by 'update method */
         var ivRounded = '',
             i = 0,
             nSign = '',
             rDec = (typeof (settings.aPad) === 'boolean' || settings.aPad === null) ? (settings.aPad ? settings.mDec : 0) : +settings.aPad;
         var truncateZeros = function (ivRounded) { /** truncate not needed zeros */
-        var regex = rDec === 0 ? (/(\.[1-9]*)0*$/) : rDec === 1 ? (/(\.\d[1-9]*)0*$/) : new RegExp('(\\.\\d{' + rDec + '}[1-9]*)0*$');
+            var regex = rDec === 0 ? (/(\.[1-9]*)0*$/) : rDec === 1 ? (/(\.\d[1-9]*)0*$/) : new RegExp('(\\.\\d{' + rDec + '}[1-9]*)0*$');
             ivRounded = ivRounded.replace(regex, '$1'); /** If there are no decimal places, we don't need a decimal point at the end */
             if (rDec === 0) {
                 ivRounded = ivRounded.replace(/\.$/, '');
@@ -374,8 +374,8 @@
             return ivRounded;
         };
         if (iv.charAt(0) === '-') { /** Checks if the iv (input Value)is a negative value */
-        nSign = '-'; /** removes the negative sign will be added back later if required */
-        iv = iv.replace('-', '');
+            nSign = '-'; /** removes the negative sign will be added back later if required */
+            iv = iv.replace('-', '');
         } /** prepend a zero if first character is not a digit (then it is likely to be a dot)*/
         if (!iv.match(/^\d/)) {
             iv = '0' + iv;
@@ -384,7 +384,7 @@
             nSign = '';
         }
         if ((+iv > 0 && settings.lZero !== 'keep') || (iv.length > 0 && settings.lZero === 'allow')) { /** trims leading zero's if needed */
-        iv = iv.replace(/^0*(\d)/, '$1');
+            iv = iv.replace(/^0*(\d)/, '$1');
         }
         var dPos = iv.lastIndexOf('.'), /** virtual decimal position */
             vdPos = dPos === -1 ? iv.length - 1 : dPos, /** checks decimal places to determine if rounding is required */
@@ -408,7 +408,7 @@
             return nSign + ivRounded;
         } /** rounded length of the string after rounding */
         var rLength = dPos + settings.mDec, /** test round */
-                tRound = +iv.charAt(rLength + 1),
+            tRound = +iv.charAt(rLength + 1),
             ivArray = iv.substring(0, rLength + 1).split(''),
             odd = (iv.charAt(rLength) === '.') ? (iv.charAt(rLength - 1) % 2) : (iv.charAt(rLength) % 2);
         if ((tRound > 4 && settings.mRound === 'S') || (tRound > 4 && settings.mRound === 'A' && nSign === '') || (tRound > 5 && settings.mRound === 'A' && nSign === '-') || (tRound > 5 && settings.mRound === 's') || (tRound > 5 && settings.mRound === 'a' && nSign === '') || (tRound > 4 && settings.mRound === 'a' && nSign === '-') || (tRound > 5 && settings.mRound === 'B') || (tRound === 5 && settings.mRound === 'B' && odd === 1) || (tRound > 0 && settings.mRound === 'C' && nSign === '') || (tRound > 0 && settings.mRound === 'F' && nSign === '-') || (tRound > 0 && settings.mRound === 'U')) {
@@ -562,7 +562,7 @@
                         this.setSelection(sign_position[1], selection.end, setReal);
                     }
                 } else { /** else select with whole sign */
-                this.setSelection(Math.min(selection.start, sign_position[0]), Math.max(selection.end, sign_position[1]), setReal);
+                    this.setSelection(Math.min(selection.start, sign_position[0]), Math.max(selection.end, sign_position[1]), setReal);
                 }
             }
         },
@@ -623,9 +623,9 @@
                 return true;
             }
             if (kdCode === 37 || kdCode === 39) { /** jump over thousand separator */
-            var aSep = this.settingsClone.aSep,
-                start = this.selection.start,
-                value = this.that.value;
+                var aSep = this.settingsClone.aSep,
+                    start = this.selection.start,
+                    value = this.that.value;
                 if (e.type === 'keydown' && aSep && !this.shiftKey) {
                     if (kdCode === 37 && value.charAt(start - 2) === aSep) {
                         this.setPosition(start - 1);
@@ -741,7 +741,7 @@
                     parts[0] = parts[0].replace('-', '');
                 }
                 if (subParts[0].length > settingsClone.mInt && parts[0].charAt(0) === '0') { /** strip leading zero if need */
-                parts[0] = parts[0].slice(1);
+                    parts[0] = parts[0].slice(1);
                 }
                 parts[0] = nSign + parts[0];
             }
@@ -806,9 +806,9 @@
             return this.each(function () {
                 var $this = $(this),
                     settings = $this.data('autoNumeric'), /** attempt to grab 'autoNumeric' settings, if they don't exist returns "undefined". */
-                        tagData = $this.data(); /** attempt to grab HTML5 data, if they don't exist we'll get "undefined".*/
+                    tagData = $this.data(); /** attempt to grab HTML5 data, if they don't exist we'll get "undefined".*/
                 if (typeof settings !== 'object') { /** If we couldn't grab settings, create them from defaults and passed options. */
-                var defaults = {
+                    var defaults = {
                         /** allowed numeric values
                          * please do not modify
                          */
@@ -943,36 +943,36 @@
                 }
                 settings.runOnce = true;
                 if ($this.is('input[type=text], input[type=hidden], input:not([type])')) { /**added hidden type */
-                $this.on('keydown.autoNumeric', function (e) {
-                    holder = getHolder($this);
-                    if (holder.settings.aDec === holder.settings.aSep) {
-                        $.error("autoNumeric will not function properly when the decimal character aDec: '" + holder.settings.aDec + "' and thousand separator aSep: '" + holder.settings.aSep + "' are the same character");
-                        return this;
-                    }
-                    if (holder.that.readOnly) {
-                        holder.processed = true;
-                        return true;
-                    }
-                    /** The below streamed code / comment allows the "enter" keydown to throw a change() event */
-                    /** if (e.keyCode === 13 && holder.inVal !== $this.val()){
+                    $this.on('keydown.autoNumeric', function (e) {
+                        holder = getHolder($this);
+                        if (holder.settings.aDec === holder.settings.aSep) {
+                            $.error("autoNumeric will not function properly when the decimal character aDec: '" + holder.settings.aDec + "' and thousand separator aSep: '" + holder.settings.aSep + "' are the same character");
+                            return this;
+                        }
+                        if (holder.that.readOnly) {
+                            holder.processed = true;
+                            return true;
+                        }
+                        /** The below streamed code / comment allows the "enter" keydown to throw a change() event */
+                        /** if (e.keyCode === 13 && holder.inVal !== $this.val()){
                             $this.change();
                             holder.inVal = $this.val();
                         }*/
-                    holder.init(e);
-                    holder.settings.oEvent = 'keydown';
-                    if (holder.skipAllways(e)) {
-                        holder.processed = true;
+                        holder.init(e);
+                        holder.settings.oEvent = 'keydown';
+                        if (holder.skipAllways(e)) {
+                            holder.processed = true;
+                            return true;
+                        }
+                        if (holder.processAllways()) {
+                            holder.processed = true;
+                            holder.formatQuick();
+                            e.preventDefault();
+                            return false;
+                        }
+                        holder.formatted = false;
                         return true;
-                    }
-                    if (holder.processAllways()) {
-                        holder.processed = true;
-                        holder.formatQuick();
-                        e.preventDefault();
-                        return false;
-                    }
-                    holder.formatted = false;
-                    return true;
-                });
+                    });
                     $this.on('keypress.autoNumeric', function (e) {
                         var holder = getHolder($this),
                             processed = holder.processed;
@@ -1042,7 +1042,7 @@
                         holder.settingsClone.oEvent = 'focusout';
                         var strip_zero = ''; /** added to control leading zero */
                         if (settingsClone.lZero === 'allow') { /** added to control leading zero */
-                        settingsClone.allowLeading = false;
+                            settingsClone.allowLeading = false;
                             strip_zero = 'leading';
                         }
                         if (value !== '') {
@@ -1116,12 +1116,12 @@
                     $.error("You must initialize autoNumeric('init', {options}) prior to calling the 'set' method");
                     return this;
                 }
-                /** allows locale decimal separator to be a comma */
-                if (testValue === $this.attr('value')) {
+               /** allows locale decimal separator to be a comma */
+                if ((testValue === $this.attr('value') || testValue === $this.text()) && settings.runOnce === false) {
                     value = value.replace(',', '.');
                 }
                 /** routine to handle page re-load from back button */
-                if (testValue !== $this.attr('value') && settings.runOnce === false) {
+                if (testValue !== $this.attr('value') && $this.prop('tagName') === 'INPUT' && settings.runOnce === false) {
                     value = autoStrip(value, settings);
                 }
                 /** returns a empty string if the value being 'set' contains non-numeric characters and or more than decimal point (full stop) and will not be formatted */
@@ -1162,7 +1162,7 @@
             var getValue = '';
             /** determine the element type then use .eq(0) selector to grab the value of the first element in selector */
             if ($this.is('input[type=text], input[type=hidden], input:not([type])')) { /**added hidden type */
-            getValue = $this.eq(0).val();
+                getValue = $this.eq(0).val();
             } else if ($.inArray($this.prop('tagName'), settings.tagList) !== -1) {
                 getValue = $this.eq(0).text();
             } else {
