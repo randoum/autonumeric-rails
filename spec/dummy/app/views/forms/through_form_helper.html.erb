@@ -1,0 +1,5 @@
+<%= form_for @record do |f| %>
+    <%= f.text_field :field1, data: {autonumeric: true} %>
+    <%= f.text_field :field2, data: {autonumeric: {aSign: 'USD ', mDec: 1}} %>
+    <%= f.submit 'Go' %>
+<% end %>

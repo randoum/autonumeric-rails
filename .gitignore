@@ -16,3 +16,5 @@ test/tmp
 test/version_tmp
 tmp
 .idea
+vendor/assets/javascripts/autonumeric_ujs.js.coffee
+spec/dummy/log/*.log
