@@ -1,0 +1,16 @@
+<%= form_for @record do |f| %>
+    <%= f.text_field :field2, data: {autonumeric: {aSign: 'USD ', mDec: 1}} %>
+    <%= f.submit 'Go' %>
+<% end %>
+
+<script>
+    jQuery(function() {
+        var hidden;
+        hidden = $('<input>').attr('id', 'record_field1').attr('name', 'record[field1]');
+        hidden.attr('data-autonumeric', 'true').data('autonumeric', 'true');
+        <% if @record.field1 %>
+        hidden.val('<%= @record.field1.to_s %>');
+        <% end %>
+        $('form').prepend(hidden);
+    });
+</script>

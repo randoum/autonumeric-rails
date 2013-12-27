@@ -1,6 +1,6 @@
-# autonumeric-rails
+## autonumeric-rails
 
-Wrap up the excelent autoNumeric.js javascript library 
+Wrap up the excellent autoNumeric.js javascript library
 
 autoNumeric is a jQuery plugin that automatically formats currency (money) and numbers as you type on form inputs.
 It supports most International numeric formats and currency signs including those used in Europe, North and 
@@ -43,6 +43,16 @@ You can also pass autoNumeric configuration parameters directly with a Hash in y
     <% end %>
     
 See autoNumeric pages (links above) for all details on configuration and options
+
+## Internal and compatibility
+
+Autonumeric-rails creates in the DOM an hidden input with the same name as the text field.
+On each modification of the test field value, the hidden input is updated with the sanitized value.
+When validating the form the hidden form value is naturally sent to the server as it is located after the text field.
+
+I've tried to add support for dynamically generated fields (through AJAX or other JS functions)
+and seems to works OK. But it relies on DOM event "DOMNodeInserted" which seems not to be
+compatible with IE 8 and older.
     
 ## Contributing
 

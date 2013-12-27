@@ -1,9 +1,9 @@
 /**
  * autonumeric_ujs.js
  * @author: randoum
- * @version: 0.1.9.15 - 2013-08-17
+ * @version: 1.9.18 - 2013-12-13
  *
- * Created by Robert J. Knothe on 2010-10-25. Please report any bugs to https://github.com/randoum/autonumeric-rails
+ * Created by Randoum on 2013-08-15. Please report any bugs to https://github.com/randoum/autonumeric-rails
  *
  * Wrap-up autoNumeric.js library to be used with Rails in a UJS flavor
  * All credits for autoNumeric library goes to its original creators
@@ -33,21 +33,45 @@
  * OTHER DEALINGS IN THE SOFTWARE.
  */
 
+var AutonumericRails;
+
+window.AutonumericRails = AutonumericRails = (function() {
+    function AutonumericRails(field) {
+        this.field = field;
+        this.create_hidden_field();
+        this.init_autonumeric();
+        this.sanitize_value();
+        this.field.on('keyup', $.proxy(function() {
+            this.sanitize_value();
+        }, this));
+    }
+
+    AutonumericRails.prototype.create_hidden_field = function() {
+        this.hidden = $('<input>').attr('type', 'hidden').attr('id', this.field.attr('id') + '_val').attr('name', this.field.attr('name'));
+        this.hidden.insertAfter(this.field);
+    };
+
+    AutonumericRails.prototype.init_autonumeric = function() {
+        this.field.autoNumeric('init', $.parseJSON(this.field.attr('data-autonumeric')));
+    };
+
+    AutonumericRails.prototype.sanitize_value = function() {
+        this.hidden.val(this.field.autoNumeric('get'));
+    };
+
+    return AutonumericRails;
+
+})();
+
 jQuery(function() {
-    var auto_numeric_init, update_numeric_value;
-    update_numeric_value = function(input) {
-        input.next().val(input.autoNumeric('get'));
-    };
-    auto_numeric_init = function(input) {
-        var hidden;
-        hidden = $('<input>').attr('type', 'hidden').attr('id', input.attr('id') + '_val').attr('name', input.attr('name'));
-        hidden.insertAfter(input);
-        input.autoNumeric('init', $.parseJSON(input.attr('data-autonumeric')));
-        input.on('keyup', function() {
-            update_numeric_value(input);
-        });
-    };
     $('input[data-autonumeric]').each(function() {
-        auto_numeric_init($(this));
+        new window.AutonumericRails($(this));
+    });
+    $(document).on('DOMNodeInserted', function(e) {
+        var element;
+        element = $(e.target);
+        if (element.attr('data-autonumeric')) {
+            new window.AutonumericRails(element);
+        }
     });
 });
