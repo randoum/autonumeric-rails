@@ -44,7 +44,16 @@ You can also pass autoNumeric configuration parameters directly with a Hash in y
     
 See autoNumeric pages (links above) for all details on configuration and options
 
-## Internal and compatibility
+## Dynamic fields (AJAX and friends)
+
+When a new fields with autonumeric attributes are generated after the DOM is loaded, either created by JavaScript
+function or resulting of an AJAX call, you must manually refresh in order to initialize those new fields.
+
+To do so you must trigger the `refresh_autonumeric` event on `document` after you modified the DOM:
+
+    $(document).trigger('refresh_autonumeric');
+
+## Internal
 
 Autonumeric-rails creates in the DOM an hidden input with the same name as the text field.
 On each modification of the test field value, the hidden input is updated with the sanitized value.
