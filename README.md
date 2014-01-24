@@ -58,10 +58,6 @@ To do so you must trigger the `refresh_autonumeric` event on `document` after yo
 Autonumeric-rails creates in the DOM an hidden input with the same name as the text field.
 On each modification of the test field value, the hidden input is updated with the sanitized value.
 When validating the form the hidden form value is naturally sent to the server as it is located after the text field.
-
-I've tried to add support for dynamically generated fields (through AJAX or other JS functions)
-and seems to works OK. But it relies on DOM event "DOMNodeInserted" which seems not to be
-compatible with IE 8 and older.
     
 ## Contributing
 
