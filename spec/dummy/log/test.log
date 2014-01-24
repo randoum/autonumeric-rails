@@ -4850,3 +4850,520 @@ Started GET "/assets/application.js" for 127.0.0.1 at 2013-12-27 12:16:43 +0800
   [1m[36m (141.0ms)[0m  [1mDELETE FROM "records";[0m
   [1m[35m (0.2ms)[0m  SELECT name FROM sqlite_master WHERE type='table' AND name='sqlite_sequence';
   [1m[36m (0.2ms)[0m  [1mDELETE FROM sqlite_sequence where name = 'records';[0m
+  [1m[36m (263.0ms)[0m  [1mDELETE FROM "records";[0m
+  [1m[35m (0.3ms)[0m  SELECT name FROM sqlite_master WHERE type='table' AND name='sqlite_sequence';
+  [1m[36m (0.2ms)[0m  [1mDELETE FROM sqlite_sequence where name = 'records';[0m
+Started GET "/through_form_helper" for 127.0.0.1 at 2014-01-24 10:41:40 +0800
+Processing by FormsController#through_form_helper as HTML
+  Rendered forms/through_form_helper.html.erb within layouts/application (16.1ms)
+Completed 200 OK in 147ms (Views: 144.8ms | ActiveRecord: 0.3ms)
+Started GET "/assets/application.css" for 127.0.0.1 at 2014-01-24 10:41:40 +0800
+Started GET "/assets/application.js" for 127.0.0.1 at 2014-01-24 10:41:40 +0800
+  [1m[35m (199.3ms)[0m  DELETE FROM "records";
+  [1m[36m (0.3ms)[0m  [1mSELECT name FROM sqlite_master WHERE type='table' AND name='sqlite_sequence';[0m
+  [1m[35m (0.2ms)[0m  DELETE FROM sqlite_sequence where name = 'records';
+Started GET "/through_form_helper" for 127.0.0.1 at 2014-01-24 10:41:41 +0800
+Processing by FormsController#through_form_helper as HTML
+  Rendered forms/through_form_helper.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 3ms (Views: 2.8ms | ActiveRecord: 0.0ms)
+  [1m[36m (191.9ms)[0m  [1mDELETE FROM "records";[0m
+  [1m[35m (0.2ms)[0m  SELECT name FROM sqlite_master WHERE type='table' AND name='sqlite_sequence';
+  [1m[36m (0.1ms)[0m  [1mDELETE FROM sqlite_sequence where name = 'records';[0m
+Started GET "/through_form_helper" for 127.0.0.1 at 2014-01-24 10:41:41 +0800
+Processing by FormsController#through_form_helper as HTML
+  Rendered forms/through_form_helper.html.erb within layouts/application (2.9ms)
+Completed 200 OK in 6ms (Views: 5.1ms | ActiveRecord: 0.0ms)
+Started POST "/records" for 127.0.0.1 at 2014-01-24 10:41:42 +0800
+Processing by RecordsController#create as HTML
+  Parameters: {"utf8"=>"✓", "record"=>{"field1"=>"122333", "field2"=>"4444.5"}, "commit"=>"Go"}
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (32.5ms)[0m  [1mINSERT INTO "records" ("field1", "field2") VALUES (?, ?)[0m  [["field1", #<BigDecimal:3209308,'0.122333E6',9(18)>], ["field2", #<BigDecimal:32092b8,'0.44445E4',18(18)>]]
+  [1m[35m (297.7ms)[0m  commit transaction
+  Rendered text template (0.0ms)
+Completed 200 OK in 344ms (Views: 10.1ms | ActiveRecord: 330.3ms)
+  [1m[36mRecord Load (0.2ms)[0m  [1mSELECT "records".* FROM "records" ORDER BY "records"."id" DESC LIMIT 1[0m
+  [1m[35m (202.5ms)[0m  DELETE FROM "records";
+  [1m[36m (0.1ms)[0m  [1mSELECT name FROM sqlite_master WHERE type='table' AND name='sqlite_sequence';[0m
+  [1m[35m (134.4ms)[0m  DELETE FROM sqlite_sequence where name = 'records';
+Started GET "/through_form_helper" for 127.0.0.1 at 2014-01-24 10:41:43 +0800
+Processing by FormsController#through_form_helper as HTML
+  Rendered forms/through_form_helper.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 3ms (Views: 2.7ms | ActiveRecord: 0.0ms)
+Started GET "/assets/application.js" for 127.0.0.1 at 2014-01-24 10:41:43 +0800
+  [1m[36m (204.4ms)[0m  [1mDELETE FROM "records";[0m
+  [1m[35m (0.3ms)[0m  SELECT name FROM sqlite_master WHERE type='table' AND name='sqlite_sequence';
+  [1m[36m (0.2ms)[0m  [1mDELETE FROM sqlite_sequence where name = 'records';[0m
+Started GET "/through_form_helper" for 127.0.0.1 at 2014-01-24 10:41:44 +0800
+Processing by FormsController#through_form_helper as HTML
+  Rendered forms/through_form_helper.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 5ms (Views: 4.8ms | ActiveRecord: 0.0ms)
+Started GET "/assets/application.js" for 127.0.0.1 at 2014-01-24 10:41:44 +0800
+  [1m[35m (165.5ms)[0m  DELETE FROM "records";
+  [1m[36m (0.2ms)[0m  [1mSELECT name FROM sqlite_master WHERE type='table' AND name='sqlite_sequence';[0m
+  [1m[35m (0.1ms)[0m  DELETE FROM sqlite_sequence where name = 'records';
+Started GET "/through_form_helper" for 127.0.0.1 at 2014-01-24 10:41:44 +0800
+Processing by FormsController#through_form_helper as HTML
+  Rendered forms/through_form_helper.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 4ms (Views: 3.3ms | ActiveRecord: 0.0ms)
+Started GET "/assets/application.js" for 127.0.0.1 at 2014-01-24 10:41:44 +0800
+Started POST "/records" for 127.0.0.1 at 2014-01-24 10:41:44 +0800
+Processing by RecordsController#create as HTML
+  Parameters: {"utf8"=>"✓", "record"=>{"field1"=>"", "field2"=>""}, "commit"=>"Go"}
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "records" DEFAULT VALUES
+  [1m[36m (205.0ms)[0m  [1mcommit transaction[0m
+  Rendered text template (0.0ms)
+Completed 200 OK in 208ms (Views: 0.3ms | ActiveRecord: 205.4ms)
+  [1m[35mRecord Load (0.2ms)[0m  SELECT "records".* FROM "records" ORDER BY "records"."id" DESC LIMIT 1
+  [1m[36m (575.8ms)[0m  [1mDELETE FROM "records";[0m
+  [1m[35m (0.2ms)[0m  SELECT name FROM sqlite_master WHERE type='table' AND name='sqlite_sequence';
+  [1m[36m (208.8ms)[0m  [1mDELETE FROM sqlite_sequence where name = 'records';[0m
+Started GET "/through_form_helper" for 127.0.0.1 at 2014-01-24 10:41:45 +0800
+Processing by FormsController#through_form_helper as HTML
+  Rendered forms/through_form_helper.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 4ms (Views: 3.1ms | ActiveRecord: 0.0ms)
+Started GET "/assets/application.js" for 127.0.0.1 at 2014-01-24 10:41:45 +0800
+  [1m[35m (145.6ms)[0m  DELETE FROM "records";
+  [1m[36m (0.3ms)[0m  [1mSELECT name FROM sqlite_master WHERE type='table' AND name='sqlite_sequence';[0m
+  [1m[35m (0.2ms)[0m  DELETE FROM sqlite_sequence where name = 'records';
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "records" ("field1", "field2") VALUES (?, ?)  [["field1", #<BigDecimal:25a76a0,'0.112233E6',9(36)>], ["field2", #<BigDecimal:25a7560,'0.4455667E6',18(45)>]]
+  [1m[36m (142.2ms)[0m  [1mcommit transaction[0m
+Started GET "/through_form_helper/1" for 127.0.0.1 at 2014-01-24 10:41:46 +0800
+Processing by FormsController#through_form_helper_with_record as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mRecord Load (0.2ms)[0m  SELECT "records".* FROM "records" WHERE "records"."id" = ? LIMIT 1  [["id", "1"]]
+  Rendered forms/through_form_helper.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 3ms (Views: 2.3ms | ActiveRecord: 0.2ms)
+Started GET "/assets/application.js" for 127.0.0.1 at 2014-01-24 10:41:46 +0800
+Started PATCH "/records/1" for 127.0.0.1 at 2014-01-24 10:41:46 +0800
+Processing by RecordsController#update as HTML
+  Parameters: {"utf8"=>"✓", "record"=>{"field1"=>"112233", "field2"=>"445566.7"}, "commit"=>"Go", "id"=>"1"}
+  [1m[36mRecord Load (0.2ms)[0m  [1mSELECT "records".* FROM "records" WHERE "records"."id" = ? LIMIT 1[0m  [["id", "1"]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mcommit transaction[0m
+  Rendered text template (0.0ms)
+Completed 200 OK in 5ms (Views: 0.7ms | ActiveRecord: 0.5ms)
+  [1m[35mRecord Load (8.6ms)[0m  SELECT "records".* FROM "records" WHERE "records"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36m (347.6ms)[0m  [1mDELETE FROM "records";[0m
+  [1m[35m (0.1ms)[0m  SELECT name FROM sqlite_master WHERE type='table' AND name='sqlite_sequence';
+  [1m[36m (125.9ms)[0m  [1mDELETE FROM sqlite_sequence where name = 'records';[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "records" ("field1", "field2") VALUES (?, ?)[0m  [["field1", #<BigDecimal:23a6f18,'0.112233E6',9(36)>], ["field2", #<BigDecimal:23a6e00,'0.4455667E6',18(45)>]]
+  [1m[35m (142.3ms)[0m  commit transaction
+Started GET "/through_form_helper/1" for 127.0.0.1 at 2014-01-24 10:41:47 +0800
+Processing by FormsController#through_form_helper_with_record as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mRecord Load (0.1ms)[0m  [1mSELECT "records".* FROM "records" WHERE "records"."id" = ? LIMIT 1[0m  [["id", "1"]]
+  Rendered forms/through_form_helper.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 5ms (Views: 3.6ms | ActiveRecord: 0.1ms)
+Started GET "/assets/application.js" for 127.0.0.1 at 2014-01-24 10:41:47 +0800
+  [1m[35m (136.4ms)[0m  DELETE FROM "records";
+  [1m[36m (0.3ms)[0m  [1mSELECT name FROM sqlite_master WHERE type='table' AND name='sqlite_sequence';[0m
+  [1m[35m (167.0ms)[0m  DELETE FROM sqlite_sequence where name = 'records';
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "records" ("field1", "field2") VALUES (?, ?)  [["field1", #<BigDecimal:2188d58,'0.112233E6',9(36)>], ["field2", #<BigDecimal:2188c18,'0.4455667E6',18(45)>]]
+  [1m[36m (147.4ms)[0m  [1mcommit transaction[0m
+Started GET "/through_form_helper/1" for 127.0.0.1 at 2014-01-24 10:41:47 +0800
+Processing by FormsController#through_form_helper_with_record as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mRecord Load (0.2ms)[0m  SELECT "records".* FROM "records" WHERE "records"."id" = ? LIMIT 1  [["id", "1"]]
+  Rendered forms/through_form_helper.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 4ms (Views: 2.2ms | ActiveRecord: 0.2ms)
+Started GET "/assets/application.js" for 127.0.0.1 at 2014-01-24 10:41:47 +0800
+Started PATCH "/records/1" for 127.0.0.1 at 2014-01-24 10:41:48 +0800
+Processing by RecordsController#update as HTML
+  Parameters: {"utf8"=>"✓", "record"=>{"field1"=>"332211", "field2"=>"776655.4"}, "commit"=>"Go", "id"=>"1"}
+  [1m[36mRecord Load (0.2ms)[0m  [1mSELECT "records".* FROM "records" WHERE "records"."id" = ? LIMIT 1[0m  [["id", "1"]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mUPDATE "records" SET "field1" = ?, "field2" = ? WHERE "records"."id" = 1[0m  [["field1", #<BigDecimal:1f35150,'0.332211E6',9(18)>], ["field2", #<BigDecimal:1f35100,'0.7766554E6',18(18)>]]
+  [1m[35m (312.2ms)[0m  commit transaction
+  Rendered text template (0.0ms)
+Completed 200 OK in 318ms (Views: 0.8ms | ActiveRecord: 312.9ms)
+  [1m[36mRecord Load (0.2ms)[0m  [1mSELECT "records".* FROM "records" WHERE "records"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35m (168.6ms)[0m  DELETE FROM "records";
+  [1m[36m (0.2ms)[0m  [1mSELECT name FROM sqlite_master WHERE type='table' AND name='sqlite_sequence';[0m
+  [1m[35m (133.8ms)[0m  DELETE FROM sqlite_sequence where name = 'records';
+Started GET "/dynamic_field" for 127.0.0.1 at 2014-01-24 10:41:48 +0800
+Processing by FormsController#dynamic_field as HTML
+  Rendered forms/dynamic_field.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 3ms (Views: 3.0ms | ActiveRecord: 0.0ms)
+Started GET "/assets/application.js" for 127.0.0.1 at 2014-01-24 10:41:48 +0800
+  [1m[36m (139.2ms)[0m  [1mDELETE FROM "records";[0m
+  [1m[35m (0.5ms)[0m  SELECT name FROM sqlite_master WHERE type='table' AND name='sqlite_sequence';
+  [1m[36m (0.2ms)[0m  [1mDELETE FROM sqlite_sequence where name = 'records';[0m
+Started GET "/dynamic_field" for 127.0.0.1 at 2014-01-24 10:41:49 +0800
+Processing by FormsController#dynamic_field as HTML
+  Rendered forms/dynamic_field.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 5ms (Views: 4.2ms | ActiveRecord: 0.0ms)
+Started GET "/assets/application.js" for 127.0.0.1 at 2014-01-24 10:41:49 +0800
+  [1m[35m (180.7ms)[0m  DELETE FROM "records";
+  [1m[36m (0.3ms)[0m  [1mSELECT name FROM sqlite_master WHERE type='table' AND name='sqlite_sequence';[0m
+  [1m[35m (0.2ms)[0m  DELETE FROM sqlite_sequence where name = 'records';
+Started GET "/dynamic_field" for 127.0.0.1 at 2014-01-24 10:41:49 +0800
+Processing by FormsController#dynamic_field as HTML
+  Rendered forms/dynamic_field.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 5ms (Views: 4.8ms | ActiveRecord: 0.0ms)
+Started GET "/assets/application.js" for 127.0.0.1 at 2014-01-24 10:41:49 +0800
+Started POST "/records" for 127.0.0.1 at 2014-01-24 10:41:50 +0800
+Processing by RecordsController#create as HTML
+  Parameters: {"record"=>{"field1"=>"122333", "field2"=>"4444.5"}, "utf8"=>"✓", "commit"=>"Go"}
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "records" ("field1", "field2") VALUES (?, ?)  [["field1", #<BigDecimal:171e8e0,'0.122333E6',9(18)>], ["field2", #<BigDecimal:171e7f0,'0.44445E4',18(18)>]]
+  [1m[36m (300.2ms)[0m  [1mcommit transaction[0m
+  Rendered text template (0.0ms)
+Completed 200 OK in 304ms (Views: 0.7ms | ActiveRecord: 300.6ms)
+  [1m[35mRecord Load (0.2ms)[0m  SELECT "records".* FROM "records" ORDER BY "records"."id" DESC LIMIT 1
+  [1m[36m (173.9ms)[0m  [1mDELETE FROM "records";[0m
+  [1m[35m (0.2ms)[0m  SELECT name FROM sqlite_master WHERE type='table' AND name='sqlite_sequence';
+  [1m[36m (142.0ms)[0m  [1mDELETE FROM sqlite_sequence where name = 'records';[0m
+Started GET "/dynamic_field" for 127.0.0.1 at 2014-01-24 10:41:50 +0800
+Processing by FormsController#dynamic_field as HTML
+  Rendered forms/dynamic_field.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 5ms (Views: 4.6ms | ActiveRecord: 0.0ms)
+Started GET "/assets/application.js" for 127.0.0.1 at 2014-01-24 10:41:50 +0800
+  [1m[35m (156.1ms)[0m  DELETE FROM "records";
+  [1m[36m (0.2ms)[0m  [1mSELECT name FROM sqlite_master WHERE type='table' AND name='sqlite_sequence';[0m
+  [1m[35m (0.1ms)[0m  DELETE FROM sqlite_sequence where name = 'records';
+Started GET "/dynamic_field" for 127.0.0.1 at 2014-01-24 10:41:53 +0800
+Processing by FormsController#dynamic_field as HTML
+  Rendered forms/dynamic_field.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 5ms (Views: 4.3ms | ActiveRecord: 0.0ms)
+Started GET "/assets/application.js" for 127.0.0.1 at 2014-01-24 10:41:53 +0800
+  [1m[36m (222.1ms)[0m  [1mDELETE FROM "records";[0m
+  [1m[35m (0.2ms)[0m  SELECT name FROM sqlite_master WHERE type='table' AND name='sqlite_sequence';
+  [1m[36m (0.1ms)[0m  [1mDELETE FROM sqlite_sequence where name = 'records';[0m
+Started GET "/dynamic_field" for 127.0.0.1 at 2014-01-24 10:41:55 +0800
+Processing by FormsController#dynamic_field as HTML
+  Rendered forms/dynamic_field.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 4ms (Views: 3.6ms | ActiveRecord: 0.0ms)
+Started GET "/assets/application.js" for 127.0.0.1 at 2014-01-24 10:41:55 +0800
+Started POST "/records" for 127.0.0.1 at 2014-01-24 10:41:55 +0800
+Processing by RecordsController#create as HTML
+  Parameters: {"record"=>{"field1"=>"", "field2"=>""}, "utf8"=>"✓", "commit"=>"Go"}
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "records" DEFAULT VALUES[0m
+  [1m[35m (175.2ms)[0m  commit transaction
+  Rendered text template (0.0ms)
+Completed 200 OK in 179ms (Views: 0.8ms | ActiveRecord: 175.6ms)
+  [1m[36mRecord Load (0.4ms)[0m  [1mSELECT "records".* FROM "records" ORDER BY "records"."id" DESC LIMIT 1[0m
+  [1m[35m (151.5ms)[0m  DELETE FROM "records";
+  [1m[36m (0.2ms)[0m  [1mSELECT name FROM sqlite_master WHERE type='table' AND name='sqlite_sequence';[0m
+  [1m[35m (117.8ms)[0m  DELETE FROM sqlite_sequence where name = 'records';
+Started GET "/dynamic_field" for 127.0.0.1 at 2014-01-24 10:41:56 +0800
+Processing by FormsController#dynamic_field as HTML
+  Rendered forms/dynamic_field.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 6ms (Views: 4.6ms | ActiveRecord: 0.0ms)
+Started GET "/assets/application.js" for 127.0.0.1 at 2014-01-24 10:41:56 +0800
+  [1m[36m (144.2ms)[0m  [1mDELETE FROM "records";[0m
+  [1m[35m (0.3ms)[0m  SELECT name FROM sqlite_master WHERE type='table' AND name='sqlite_sequence';
+  [1m[36m (0.2ms)[0m  [1mDELETE FROM sqlite_sequence where name = 'records';[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "records" ("field1", "field2") VALUES (?, ?)[0m  [["field1", #<BigDecimal:63b6810,'0.112233E6',9(36)>], ["field2", #<BigDecimal:63b66d0,'0.4455667E6',18(45)>]]
+  [1m[35m (142.7ms)[0m  commit transaction
+Started GET "/dynamic_field/1" for 127.0.0.1 at 2014-01-24 10:41:57 +0800
+Processing by FormsController#dynamic_field_with_record as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mRecord Load (0.2ms)[0m  [1mSELECT "records".* FROM "records" WHERE "records"."id" = ? LIMIT 1[0m  [["id", "1"]]
+  Rendered forms/dynamic_field.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 3ms (Views: 2.1ms | ActiveRecord: 0.2ms)
+Started GET "/assets/application.js" for 127.0.0.1 at 2014-01-24 10:41:57 +0800
+Started PATCH "/records/1" for 127.0.0.1 at 2014-01-24 10:41:57 +0800
+Processing by RecordsController#update as HTML
+  Parameters: {"record"=>{"field1"=>"112233.0", "field2"=>"445566.7"}, "utf8"=>"✓", "commit"=>"Go", "id"=>"1"}
+  [1m[35mRecord Load (0.1ms)[0m  SELECT "records".* FROM "records" WHERE "records"."id" = ? LIMIT 1  [["id", "1"]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  commit transaction
+  Rendered text template (0.0ms)
+Completed 200 OK in 2ms (Views: 0.3ms | ActiveRecord: 0.2ms)
+  [1m[36mRecord Load (0.3ms)[0m  [1mSELECT "records".* FROM "records" WHERE "records"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35m (314.3ms)[0m  DELETE FROM "records";
+  [1m[36m (0.2ms)[0m  [1mSELECT name FROM sqlite_master WHERE type='table' AND name='sqlite_sequence';[0m
+  [1m[35m (117.0ms)[0m  DELETE FROM sqlite_sequence where name = 'records';
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "records" ("field1", "field2") VALUES (?, ?)  [["field1", #<BigDecimal:4deebb8,'0.112233E6',9(36)>], ["field2", #<BigDecimal:4deea78,'0.4455667E6',18(45)>]]
+  [1m[36m (129.4ms)[0m  [1mcommit transaction[0m
+Started GET "/dynamic_field/1" for 127.0.0.1 at 2014-01-24 10:41:57 +0800
+Processing by FormsController#dynamic_field_with_record as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mRecord Load (0.2ms)[0m  SELECT "records".* FROM "records" WHERE "records"."id" = ? LIMIT 1  [["id", "1"]]
+  Rendered forms/dynamic_field.html.erb within layouts/application (2.7ms)
+Completed 200 OK in 7ms (Views: 4.5ms | ActiveRecord: 0.2ms)
+Started GET "/assets/application.js" for 127.0.0.1 at 2014-01-24 10:41:57 +0800
+  [1m[36m (127.5ms)[0m  [1mDELETE FROM "records";[0m
+  [1m[35m (0.1ms)[0m  SELECT name FROM sqlite_master WHERE type='table' AND name='sqlite_sequence';
+  [1m[36m (168.1ms)[0m  [1mDELETE FROM sqlite_sequence where name = 'records';[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "records" ("field1", "field2") VALUES (?, ?)[0m  [["field1", #<BigDecimal:31fa380,'0.112233E6',9(36)>], ["field2", #<BigDecimal:31fa290,'0.4455667E6',18(45)>]]
+  [1m[35m (139.0ms)[0m  commit transaction
+Started GET "/dynamic_field/1" for 127.0.0.1 at 2014-01-24 10:41:58 +0800
+Processing by FormsController#dynamic_field_with_record as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mRecord Load (0.1ms)[0m  [1mSELECT "records".* FROM "records" WHERE "records"."id" = ? LIMIT 1[0m  [["id", "1"]]
+  Rendered forms/dynamic_field.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 4ms (Views: 2.6ms | ActiveRecord: 0.1ms)
+Started GET "/assets/application.js" for 127.0.0.1 at 2014-01-24 10:41:58 +0800
+Started PATCH "/records/1" for 127.0.0.1 at 2014-01-24 10:41:58 +0800
+Processing by RecordsController#update as HTML
+  Parameters: {"record"=>{"field1"=>"332211", "field2"=>"776655.4"}, "utf8"=>"✓", "commit"=>"Go", "id"=>"1"}
+  [1m[35mRecord Load (0.1ms)[0m  SELECT "records".* FROM "records" WHERE "records"."id" = ? LIMIT 1  [["id", "1"]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  UPDATE "records" SET "field1" = ?, "field2" = ? WHERE "records"."id" = 1  [["field1", #<BigDecimal:3792090,'0.332211E6',9(18)>], ["field2", #<BigDecimal:3791fa0,'0.7766554E6',18(18)>]]
+  [1m[36m (306.3ms)[0m  [1mcommit transaction[0m
+  Rendered text template (0.0ms)
+Completed 200 OK in 310ms (Views: 0.4ms | ActiveRecord: 306.6ms)
+  [1m[35mRecord Load (0.2ms)[0m  SELECT "records".* FROM "records" WHERE "records"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36m (174.9ms)[0m  [1mDELETE FROM "records";[0m
+  [1m[35m (0.1ms)[0m  SELECT name FROM sqlite_master WHERE type='table' AND name='sqlite_sequence';
+  [1m[36m (125.9ms)[0m  [1mDELETE FROM sqlite_sequence where name = 'records';[0m
+  [1m[36m (247.7ms)[0m  [1mDELETE FROM "records";[0m
+  [1m[35m (0.2ms)[0m  SELECT name FROM sqlite_master WHERE type='table' AND name='sqlite_sequence';
+  [1m[36m (0.2ms)[0m  [1mDELETE FROM sqlite_sequence where name = 'records';[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (1.2ms)[0m  [1mINSERT INTO "records" ("field1", "field2") VALUES (?, ?)[0m  [["field1", #<BigDecimal:a567250,'0.112233E6',9(36)>], ["field2", #<BigDecimal:a567160,'0.4455667E6',18(45)>]]
+  [1m[35m (148.3ms)[0m  commit transaction
+Started GET "/dynamic_field/1" for 127.0.0.1 at 2014-01-24 10:43:38 +0800
+Processing by FormsController#dynamic_field_with_record as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mRecord Load (0.3ms)[0m  [1mSELECT "records".* FROM "records" WHERE "records"."id" = ? LIMIT 1[0m  [["id", "1"]]
+  Rendered forms/dynamic_field.html.erb within layouts/application (10.6ms)
+Completed 200 OK in 34ms (Views: 31.9ms | ActiveRecord: 0.3ms)
+Started GET "/assets/application.css" for 127.0.0.1 at 2014-01-24 10:43:38 +0800
+Started GET "/assets/application.js" for 127.0.0.1 at 2014-01-24 10:43:38 +0800
+  [1m[35m (340.0ms)[0m  DELETE FROM "records";
+  [1m[36m (0.4ms)[0m  [1mSELECT name FROM sqlite_master WHERE type='table' AND name='sqlite_sequence';[0m
+  [1m[35m (136.2ms)[0m  DELETE FROM sqlite_sequence where name = 'records';
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "records" ("field1", "field2") VALUES (?, ?)  [["field1", #<BigDecimal:4272708,'0.112233E6',9(36)>], ["field2", #<BigDecimal:42725a0,'0.4455667E6',18(45)>]]
+  [1m[36m (138.8ms)[0m  [1mcommit transaction[0m
+Started GET "/dynamic_field/1" for 127.0.0.1 at 2014-01-24 10:43:39 +0800
+Processing by FormsController#dynamic_field_with_record as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mRecord Load (0.2ms)[0m  SELECT "records".* FROM "records" WHERE "records"."id" = ? LIMIT 1  [["id", "1"]]
+  Rendered forms/dynamic_field.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 4ms (Views: 2.5ms | ActiveRecord: 0.2ms)
+Started PATCH "/records/1" for 127.0.0.1 at 2014-01-24 10:43:40 +0800
+Processing by RecordsController#update as HTML
+  Parameters: {"record"=>{"field1"=>"332211", "field2"=>"776655.4"}, "utf8"=>"✓", "commit"=>"Go", "id"=>"1"}
+  [1m[36mRecord Load (0.1ms)[0m  [1mSELECT "records".* FROM "records" WHERE "records"."id" = ? LIMIT 1[0m  [["id", "1"]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "records" SET "field1" = ?, "field2" = ? WHERE "records"."id" = 1[0m  [["field1", #<BigDecimal:3fe3000,'0.332211E6',9(18)>], ["field2", #<BigDecimal:3fe2f10,'0.7766554E6',18(18)>]]
+  [1m[35m (450.9ms)[0m  commit transaction
+  Rendered text template (0.0ms)
+Completed 200 OK in 457ms (Views: 2.9ms | ActiveRecord: 451.2ms)
+  [1m[36mRecord Load (4.4ms)[0m  [1mSELECT "records".* FROM "records" WHERE "records"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35m (223.5ms)[0m  DELETE FROM "records";
+  [1m[36m (0.2ms)[0m  [1mSELECT name FROM sqlite_master WHERE type='table' AND name='sqlite_sequence';[0m
+  [1m[35m (182.1ms)[0m  DELETE FROM sqlite_sequence where name = 'records';
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "records" ("field1", "field2") VALUES (?, ?)  [["field1", #<BigDecimal:3cf5af0,'0.112233E6',9(36)>], ["field2", #<BigDecimal:3cf57d0,'0.4455667E6',18(45)>]]
+  [1m[36m (144.7ms)[0m  [1mcommit transaction[0m
+Started GET "/dynamic_field/1" for 127.0.0.1 at 2014-01-24 10:43:42 +0800
+Processing by FormsController#dynamic_field_with_record as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mRecord Load (0.1ms)[0m  SELECT "records".* FROM "records" WHERE "records"."id" = ? LIMIT 1  [["id", "1"]]
+  Rendered forms/dynamic_field.html.erb within layouts/application (2.8ms)
+Completed 200 OK in 6ms (Views: 5.4ms | ActiveRecord: 0.1ms)
+Started PATCH "/records/1" for 127.0.0.1 at 2014-01-24 10:43:42 +0800
+Processing by RecordsController#update as HTML
+  Parameters: {"record"=>{"field1"=>"112233", "field2"=>"445566.7"}, "utf8"=>"✓", "commit"=>"Go", "id"=>"1"}
+  [1m[36mRecord Load (0.1ms)[0m  [1mSELECT "records".* FROM "records" WHERE "records"."id" = ? LIMIT 1[0m  [["id", "1"]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mcommit transaction[0m
+  Rendered text template (0.0ms)
+Completed 200 OK in 2ms (Views: 0.3ms | ActiveRecord: 0.2ms)
+  [1m[35mRecord Load (0.1ms)[0m  SELECT "records".* FROM "records" WHERE "records"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36m (315.0ms)[0m  [1mDELETE FROM "records";[0m
+  [1m[35m (0.3ms)[0m  SELECT name FROM sqlite_master WHERE type='table' AND name='sqlite_sequence';
+  [1m[36m (141.9ms)[0m  [1mDELETE FROM sqlite_sequence where name = 'records';[0m
+Started GET "/dynamic_field" for 127.0.0.1 at 2014-01-24 10:43:42 +0800
+Processing by FormsController#dynamic_field as HTML
+  Rendered forms/dynamic_field.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 6ms (Views: 4.9ms | ActiveRecord: 0.0ms)
+Started POST "/records" for 127.0.0.1 at 2014-01-24 10:43:42 +0800
+Processing by RecordsController#create as HTML
+  Parameters: {"record"=>{"field1"=>"122333", "field2"=>"4444.5"}, "utf8"=>"✓", "commit"=>"Go"}
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "records" ("field1", "field2") VALUES (?, ?)[0m  [["field1", #<BigDecimal:3229928,'0.122333E6',9(18)>], ["field2", #<BigDecimal:3229888,'0.44445E4',18(18)>]]
+  [1m[35m (333.6ms)[0m  commit transaction
+  Rendered text template (0.0ms)
+Completed 200 OK in 336ms (Views: 0.4ms | ActiveRecord: 333.8ms)
+  [1m[36mRecord Load (0.2ms)[0m  [1mSELECT "records".* FROM "records" ORDER BY "records"."id" DESC LIMIT 1[0m
+  [1m[35m (168.9ms)[0m  DELETE FROM "records";
+  [1m[36m (0.1ms)[0m  [1mSELECT name FROM sqlite_master WHERE type='table' AND name='sqlite_sequence';[0m
+  [1m[35m (119.1ms)[0m  DELETE FROM sqlite_sequence where name = 'records';
+Started GET "/dynamic_field" for 127.0.0.1 at 2014-01-24 10:43:43 +0800
+Processing by FormsController#dynamic_field as HTML
+  Rendered forms/dynamic_field.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 3ms (Views: 2.9ms | ActiveRecord: 0.0ms)
+  [1m[36m (181.3ms)[0m  [1mDELETE FROM "records";[0m
+  [1m[35m (0.3ms)[0m  SELECT name FROM sqlite_master WHERE type='table' AND name='sqlite_sequence';
+  [1m[36m (0.2ms)[0m  [1mDELETE FROM sqlite_sequence where name = 'records';[0m
+Started GET "/dynamic_field" for 127.0.0.1 at 2014-01-24 10:43:44 +0800
+Processing by FormsController#dynamic_field as HTML
+  Rendered forms/dynamic_field.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 5ms (Views: 4.4ms | ActiveRecord: 0.0ms)
+  [1m[35m (169.9ms)[0m  DELETE FROM "records";
+  [1m[36m (0.2ms)[0m  [1mSELECT name FROM sqlite_master WHERE type='table' AND name='sqlite_sequence';[0m
+  [1m[35m (0.2ms)[0m  DELETE FROM sqlite_sequence where name = 'records';
+Started GET "/dynamic_field" for 127.0.0.1 at 2014-01-24 10:43:44 +0800
+Processing by FormsController#dynamic_field as HTML
+  Rendered forms/dynamic_field.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 2ms (Views: 2.2ms | ActiveRecord: 0.0ms)
+  [1m[36m (168.6ms)[0m  [1mDELETE FROM "records";[0m
+  [1m[35m (0.1ms)[0m  SELECT name FROM sqlite_master WHERE type='table' AND name='sqlite_sequence';
+  [1m[36m (0.1ms)[0m  [1mDELETE FROM sqlite_sequence where name = 'records';[0m
+Started GET "/dynamic_field" for 127.0.0.1 at 2014-01-24 10:43:44 +0800
+Processing by FormsController#dynamic_field as HTML
+  Rendered forms/dynamic_field.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 5ms (Views: 3.8ms | ActiveRecord: 0.0ms)
+  [1m[35m (159.2ms)[0m  DELETE FROM "records";
+  [1m[36m (0.3ms)[0m  [1mSELECT name FROM sqlite_master WHERE type='table' AND name='sqlite_sequence';[0m
+  [1m[35m (0.2ms)[0m  DELETE FROM sqlite_sequence where name = 'records';
+Started GET "/dynamic_field" for 127.0.0.1 at 2014-01-24 10:43:45 +0800
+Processing by FormsController#dynamic_field as HTML
+  Rendered forms/dynamic_field.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 3ms (Views: 2.3ms | ActiveRecord: 0.0ms)
+Started POST "/records" for 127.0.0.1 at 2014-01-24 10:43:45 +0800
+Processing by RecordsController#create as HTML
+  Parameters: {"record"=>{"field1"=>"", "field2"=>""}, "utf8"=>"✓", "commit"=>"Go"}
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "records" DEFAULT VALUES
+  [1m[36m (154.7ms)[0m  [1mcommit transaction[0m
+  Rendered text template (0.0ms)
+Completed 200 OK in 160ms (Views: 0.6ms | ActiveRecord: 155.2ms)
+  [1m[35mRecord Load (0.4ms)[0m  SELECT "records".* FROM "records" ORDER BY "records"."id" DESC LIMIT 1
+  [1m[36m (158.2ms)[0m  [1mDELETE FROM "records";[0m
+  [1m[35m (0.2ms)[0m  SELECT name FROM sqlite_master WHERE type='table' AND name='sqlite_sequence';
+  [1m[36m (116.5ms)[0m  [1mDELETE FROM sqlite_sequence where name = 'records';[0m
+Started GET "/dynamic_field" for 127.0.0.1 at 2014-01-24 10:43:46 +0800
+Processing by FormsController#dynamic_field as HTML
+  Rendered forms/dynamic_field.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 4ms (Views: 3.2ms | ActiveRecord: 0.0ms)
+  [1m[35m (138.1ms)[0m  DELETE FROM "records";
+  [1m[36m (0.3ms)[0m  [1mSELECT name FROM sqlite_master WHERE type='table' AND name='sqlite_sequence';[0m
+  [1m[35m (0.1ms)[0m  DELETE FROM sqlite_sequence where name = 'records';
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "records" ("field1", "field2") VALUES (?, ?)  [["field1", #<BigDecimal:262d318,'0.112233E6',9(36)>], ["field2", #<BigDecimal:262d1b0,'0.4455667E6',18(45)>]]
+  [1m[36m (133.4ms)[0m  [1mcommit transaction[0m
+Started GET "/through_form_helper/1" for 127.0.0.1 at 2014-01-24 10:43:46 +0800
+Processing by FormsController#through_form_helper_with_record as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mRecord Load (0.2ms)[0m  SELECT "records".* FROM "records" WHERE "records"."id" = ? LIMIT 1  [["id", "1"]]
+  Rendered forms/through_form_helper.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 5ms (Views: 3.1ms | ActiveRecord: 0.2ms)
+  [1m[36m (283.0ms)[0m  [1mDELETE FROM "records";[0m
+  [1m[35m (0.3ms)[0m  SELECT name FROM sqlite_master WHERE type='table' AND name='sqlite_sequence';
+  [1m[36m (117.4ms)[0m  [1mDELETE FROM sqlite_sequence where name = 'records';[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "records" ("field1", "field2") VALUES (?, ?)[0m  [["field1", #<BigDecimal:23ffde8,'0.112233E6',9(36)>], ["field2", #<BigDecimal:23ffcf8,'0.4455667E6',18(45)>]]
+  [1m[35m (141.4ms)[0m  commit transaction
+Started GET "/through_form_helper/1" for 127.0.0.1 at 2014-01-24 10:43:47 +0800
+Processing by FormsController#through_form_helper_with_record as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mRecord Load (0.1ms)[0m  [1mSELECT "records".* FROM "records" WHERE "records"."id" = ? LIMIT 1[0m  [["id", "1"]]
+  Rendered forms/through_form_helper.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 3ms (Views: 2.1ms | ActiveRecord: 0.1ms)
+Started PATCH "/records/1" for 127.0.0.1 at 2014-01-24 10:43:47 +0800
+Processing by RecordsController#update as HTML
+  Parameters: {"utf8"=>"✓", "record"=>{"field1"=>"332211", "field2"=>"776655.4"}, "commit"=>"Go", "id"=>"1"}
+  [1m[35mRecord Load (0.1ms)[0m  SELECT "records".* FROM "records" WHERE "records"."id" = ? LIMIT 1  [["id", "1"]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  UPDATE "records" SET "field1" = ?, "field2" = ? WHERE "records"."id" = 1  [["field1", #<BigDecimal:21b8378,'0.332211E6',9(18)>], ["field2", #<BigDecimal:21b8328,'0.7766554E6',18(18)>]]
+  [1m[36m (368.0ms)[0m  [1mcommit transaction[0m
+  Rendered text template (0.0ms)
+Completed 200 OK in 371ms (Views: 0.4ms | ActiveRecord: 368.3ms)
+  [1m[35mRecord Load (0.2ms)[0m  SELECT "records".* FROM "records" WHERE "records"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36m (141.0ms)[0m  [1mDELETE FROM "records";[0m
+  [1m[35m (0.3ms)[0m  SELECT name FROM sqlite_master WHERE type='table' AND name='sqlite_sequence';
+  [1m[36m (159.9ms)[0m  [1mDELETE FROM sqlite_sequence where name = 'records';[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "records" ("field1", "field2") VALUES (?, ?)[0m  [["field1", #<BigDecimal:211bdc0,'0.112233E6',9(36)>], ["field2", #<BigDecimal:211bbe0,'0.4455667E6',18(45)>]]
+  [1m[35m (128.8ms)[0m  commit transaction
+Started GET "/through_form_helper/1" for 127.0.0.1 at 2014-01-24 10:43:48 +0800
+Processing by FormsController#through_form_helper_with_record as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mRecord Load (0.1ms)[0m  [1mSELECT "records".* FROM "records" WHERE "records"."id" = ? LIMIT 1[0m  [["id", "1"]]
+  Rendered forms/through_form_helper.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 3ms (Views: 2.4ms | ActiveRecord: 0.1ms)
+Started PATCH "/records/1" for 127.0.0.1 at 2014-01-24 10:43:48 +0800
+Processing by RecordsController#update as HTML
+  Parameters: {"utf8"=>"✓", "record"=>{"field1"=>"112233", "field2"=>"445566.7"}, "commit"=>"Go", "id"=>"1"}
+  [1m[35mRecord Load (0.2ms)[0m  SELECT "records".* FROM "records" WHERE "records"."id" = ? LIMIT 1  [["id", "1"]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  commit transaction
+  Rendered text template (0.0ms)
+Completed 200 OK in 4ms (Views: 0.5ms | ActiveRecord: 0.5ms)
+  [1m[36mRecord Load (0.1ms)[0m  [1mSELECT "records".* FROM "records" WHERE "records"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35m (259.2ms)[0m  DELETE FROM "records";
+  [1m[36m (0.2ms)[0m  [1mSELECT name FROM sqlite_master WHERE type='table' AND name='sqlite_sequence';[0m
+  [1m[35m (116.9ms)[0m  DELETE FROM sqlite_sequence where name = 'records';
+Started GET "/through_form_helper" for 127.0.0.1 at 2014-01-24 10:43:49 +0800
+Processing by FormsController#through_form_helper as HTML
+  Rendered forms/through_form_helper.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 3ms (Views: 3.0ms | ActiveRecord: 0.0ms)
+Started POST "/records" for 127.0.0.1 at 2014-01-24 10:43:49 +0800
+Processing by RecordsController#create as HTML
+  Parameters: {"utf8"=>"✓", "record"=>{"field1"=>"122333", "field2"=>"4444.5"}, "commit"=>"Go"}
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "records" ("field1", "field2") VALUES (?, ?)  [["field1", #<BigDecimal:1c2bd88,'0.122333E6',9(18)>], ["field2", #<BigDecimal:1c2bd38,'0.44445E4',18(18)>]]
+  [1m[36m (332.8ms)[0m  [1mcommit transaction[0m
+  Rendered text template (0.0ms)
+Completed 200 OK in 337ms (Views: 0.7ms | ActiveRecord: 333.1ms)
+  [1m[35mRecord Load (0.3ms)[0m  SELECT "records".* FROM "records" ORDER BY "records"."id" DESC LIMIT 1
+  [1m[36m (170.5ms)[0m  [1mDELETE FROM "records";[0m
+  [1m[35m (0.3ms)[0m  SELECT name FROM sqlite_master WHERE type='table' AND name='sqlite_sequence';
+  [1m[36m (118.0ms)[0m  [1mDELETE FROM sqlite_sequence where name = 'records';[0m
+Started GET "/through_form_helper" for 127.0.0.1 at 2014-01-24 10:43:50 +0800
+Processing by FormsController#through_form_helper as HTML
+  Rendered forms/through_form_helper.html.erb within layouts/application (2.7ms)
+Completed 200 OK in 6ms (Views: 4.9ms | ActiveRecord: 0.0ms)
+  [1m[35m (186.8ms)[0m  DELETE FROM "records";
+  [1m[36m (0.2ms)[0m  [1mSELECT name FROM sqlite_master WHERE type='table' AND name='sqlite_sequence';[0m
+  [1m[35m (0.1ms)[0m  DELETE FROM sqlite_sequence where name = 'records';
+Started GET "/through_form_helper" for 127.0.0.1 at 2014-01-24 10:43:51 +0800
+Processing by FormsController#through_form_helper as HTML
+  Rendered forms/through_form_helper.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 5ms (Views: 4.2ms | ActiveRecord: 0.0ms)
+  [1m[36m (145.9ms)[0m  [1mDELETE FROM "records";[0m
+  [1m[35m (0.3ms)[0m  SELECT name FROM sqlite_master WHERE type='table' AND name='sqlite_sequence';
+  [1m[36m (0.2ms)[0m  [1mDELETE FROM sqlite_sequence where name = 'records';[0m
+Started GET "/through_form_helper" for 127.0.0.1 at 2014-01-24 10:43:51 +0800
+Processing by FormsController#through_form_helper as HTML
+  Rendered forms/through_form_helper.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 4ms (Views: 3.2ms | ActiveRecord: 0.0ms)
+  [1m[35m (133.3ms)[0m  DELETE FROM "records";
+  [1m[36m (0.2ms)[0m  [1mSELECT name FROM sqlite_master WHERE type='table' AND name='sqlite_sequence';[0m
+  [1m[35m (0.1ms)[0m  DELETE FROM sqlite_sequence where name = 'records';
+Started GET "/through_form_helper" for 127.0.0.1 at 2014-01-24 10:43:51 +0800
+Processing by FormsController#through_form_helper as HTML
+  Rendered forms/through_form_helper.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 6ms (Views: 5.0ms | ActiveRecord: 0.0ms)
+  [1m[36m (152.6ms)[0m  [1mDELETE FROM "records";[0m
+  [1m[35m (0.3ms)[0m  SELECT name FROM sqlite_master WHERE type='table' AND name='sqlite_sequence';
+  [1m[36m (0.1ms)[0m  [1mDELETE FROM sqlite_sequence where name = 'records';[0m
+Started GET "/through_form_helper" for 127.0.0.1 at 2014-01-24 10:43:52 +0800
+Processing by FormsController#through_form_helper as HTML
+  Rendered forms/through_form_helper.html.erb within layouts/application (2.7ms)
+Completed 200 OK in 5ms (Views: 4.6ms | ActiveRecord: 0.0ms)
+Started GET "/assets/application.js" for 127.0.0.1 at 2014-01-24 10:43:52 +0800
+Started POST "/records" for 127.0.0.1 at 2014-01-24 10:43:52 +0800
+Processing by RecordsController#create as HTML
+  Parameters: {"utf8"=>"✓", "record"=>{"field1"=>"", "field2"=>""}, "commit"=>"Go"}
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "records" DEFAULT VALUES[0m
+  [1m[35m (172.5ms)[0m  commit transaction
+  Rendered text template (0.0ms)
+Completed 200 OK in 176ms (Views: 0.4ms | ActiveRecord: 173.0ms)
+  [1m[36mRecord Load (0.2ms)[0m  [1mSELECT "records".* FROM "records" ORDER BY "records"."id" DESC LIMIT 1[0m
+  [1m[35m (154.6ms)[0m  DELETE FROM "records";
+  [1m[36m (0.3ms)[0m  [1mSELECT name FROM sqlite_master WHERE type='table' AND name='sqlite_sequence';[0m
+  [1m[35m (109.5ms)[0m  DELETE FROM sqlite_sequence where name = 'records';
+Started GET "/through_form_helper" for 127.0.0.1 at 2014-01-24 10:43:53 +0800
+Processing by FormsController#through_form_helper as HTML
+  Rendered forms/through_form_helper.html.erb within layouts/application (3.6ms)
+Completed 200 OK in 7ms (Views: 6.1ms | ActiveRecord: 0.0ms)
+Started GET "/assets/application.js" for 127.0.0.1 at 2014-01-24 10:43:53 +0800
+  [1m[36m (132.5ms)[0m  [1mDELETE FROM "records";[0m
+  [1m[35m (0.2ms)[0m  SELECT name FROM sqlite_master WHERE type='table' AND name='sqlite_sequence';
+  [1m[36m (0.1ms)[0m  [1mDELETE FROM sqlite_sequence where name = 'records';[0m

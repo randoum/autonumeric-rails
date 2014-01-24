@@ -32,12 +32,12 @@
  * FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
  * OTHER DEALINGS IN THE SOFTWARE.
  */
-
 var AutonumericRails;
 
 window.AutonumericRails = AutonumericRails = (function() {
     function AutonumericRails(field) {
         this.field = field;
+        this.field.data('autonumeric-initialized', true);
         this.create_hidden_field();
         this.init_autonumeric();
         this.sanitize_value();
@@ -63,15 +63,17 @@ window.AutonumericRails = AutonumericRails = (function() {
 
 })();
 
-jQuery(function() {
+window.refresh_autonumeric = function() {
     $('input[data-autonumeric]').each(function() {
-        new window.AutonumericRails($(this));
-    });
-    $(document).on('DOMNodeInserted', function(e) {
-        var element;
-        element = $(e.target);
-        if (element.attr('data-autonumeric')) {
-            new window.AutonumericRails(element);
+        if (!$(this).data('autonumeric-initialized')) {
+            new window.AutonumericRails($(this));
         }
+    });
+};
+
+jQuery(function() {
+    refresh_autonumeric();
+    $(document).on('refresh_autonumeric', function() {
+        refresh_autonumeric();
     });
 });

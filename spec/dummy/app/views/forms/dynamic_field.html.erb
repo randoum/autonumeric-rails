@@ -12,5 +12,8 @@
         hidden.val('<%= @record.field1.to_s %>');
         <% end %>
         $('form').prepend(hidden);
+
+
+        $(document).trigger('refresh_autonumeric');
     });
 </script>
