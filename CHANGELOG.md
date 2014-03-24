@@ -1,3 +1,7 @@
+# 1.9.19.0
+
+- Update autoNumeric v 1.9.19
+
 # 1.9.18.1
 
 - Improved support for dynamically generated DOM elements
