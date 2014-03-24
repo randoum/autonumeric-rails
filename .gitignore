@@ -1,5 +1,7 @@
 *.gem
 *.rbc
+*.log
+*.sqlite3
 .bundle
 .config
 .yardoc
@@ -16,5 +18,5 @@ test/tmp
 test/version_tmp
 tmp
 .idea
+.ruby-version
 vendor/assets/javascripts/autonumeric_ujs.js.coffee
-spec/dummy/log/*.log
