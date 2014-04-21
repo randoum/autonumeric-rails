@@ -1,3 +1,9 @@
+# 1.9.22
+
+- Update autoNumeric v 1.9.22
+- autoNumeric fields now automatically initialize after AJAX requests.
+Manual DOM modification (through JavaScript) must still trigger `refresh_autonumeric` event manually
+
 # 1.9.21
 
 - Update autoNumeric v 1.9.21

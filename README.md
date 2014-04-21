@@ -44,10 +44,15 @@ You can also pass autoNumeric configuration parameters directly with a Hash in y
     
 See autoNumeric pages (links above) for all details on configuration and options
 
-## Dynamic fields (AJAX and friends)
+## AJAX
 
-When a new fields with autonumeric attributes are generated after the DOM is loaded, either created by JavaScript
-function or resulting of an AJAX call, you must manually refresh in order to initialize those new fields.
+autonumeric-rails looks for `ajaxComplete` events which are trigger by jQuery every time an Ajax request finishes.
+As a result, rails-ujs elements (i.e. `data-remote` elements) now automatically initialize autonumeric fields after the AJAX request is complete.
+
+## Javascript DOM manipulation
+
+When a Javascript function generate and add to the DOM new fields with autonumeric attributes,
+you must manually refresh in order to initialize those new fields.
 
 To do so you must trigger the `refresh_autonumeric` event on `document` after you modified the DOM:
 
@@ -56,8 +61,8 @@ To do so you must trigger the `refresh_autonumeric` event on `document` after yo
 ## Internal
 
 Autonumeric-rails creates in the DOM an hidden input with the same name as the text field.
-On each modification of the test field value, the hidden input is updated with the sanitized value.
-When validating the form the hidden form value is naturally sent to the server as it is located after the text field.
+On each modification of the text field value (through the `keyup` event), the hidden input is updated with the sanitized value.
+When validating the form, the hidden field value is sent to the server as it is located after the text field in the DOM.
     
 ## Contributing
 

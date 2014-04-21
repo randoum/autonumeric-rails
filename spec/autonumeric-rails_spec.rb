@@ -101,12 +101,17 @@ describe 'Autonumeric-rails', type: :feature, js: true do
   before { wait_for_jquery }
 
   context 'Through form helper' do
-    let(:url) { 'through_form_helper' }
+    let(:url) { 'static_fields' }
     it_behaves_like 'all autonumeric-rails tests'
   end
 
-  context 'With dynamically created fields' do
-    let(:url) { 'dynamic_field' }
+  context 'Javascript manually created fields' do
+    let(:url) { 'javascript_fields' }
+    it_behaves_like 'all autonumeric-rails tests'
+  end
+
+  context 'AJAX request created fields' do
+    let(:url) { 'ajax_fields' }
     it_behaves_like 'all autonumeric-rails tests'
   end
 

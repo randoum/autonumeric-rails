@@ -1,12 +1,25 @@
 class FormsController < ApplicationController
-  create_action :through_form_helper
-  create_action :dynamic_field
 
-  def without_record
-    @record = Record.new
+  create_action :static_fields
+  create_action :javascript_fields
+  create_action :get_content_from_ajax
+
+  def ajax_fields
+    @url_prefix = ''
   end
 
-  def with_record
-    @record = Record.find params[:id]
+  def ajax_fields_with_record
+    @url_prefix = "/#{params[:id]}"
+    render action: :ajax_fields
   end
+
+  private
+
+    def without_record
+      @record = Record.new
+    end
+
+    def with_record
+      @record = Record.find params[:id]
+    end
 end
