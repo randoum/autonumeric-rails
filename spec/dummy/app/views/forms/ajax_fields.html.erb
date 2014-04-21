@@ -1,0 +1,10 @@
+<div id="content"></div>
+
+<script>
+  jQuery(function() {
+    $.ajax({
+      url: '/get_content_from_ajax<%= @url_prefix %>',
+      dataType: 'script'
+    });
+  });
+</script>

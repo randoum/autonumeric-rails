@@ -5,14 +5,13 @@
 
 <script>
     jQuery(function() {
-        var hidden;
-        hidden = $('<input>').attr('id', 'record_field1').attr('name', 'record[field1]');
-        hidden.attr('data-autonumeric', 'true').data('autonumeric', 'true');
+        var new_field;
+        new_field = $('<input>').attr('id', 'record_field1').attr('name', 'record[field1]');
+        new_field.attr('data-autonumeric', 'true').data('autonumeric', 'true');
         <% if @record.field1 %>
-        hidden.val('<%= @record.field1.to_s %>');
+        new_field.val('<%= @record.field1.to_s %>');
         <% end %>
-        $('form').prepend(hidden);
-
+        $('form').prepend(new_field);
 
         $(document).trigger('refresh_autonumeric');
     });

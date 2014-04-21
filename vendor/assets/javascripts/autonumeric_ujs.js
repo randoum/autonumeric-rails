@@ -1,7 +1,7 @@
 /**
  * autonumeric_ujs.js
  * @author: randoum
- * @version: 1.9.18 - 2013-12-13
+ * @version: 1.9.22 - 2014-04-22
  *
  * Created by Randoum on 2013-08-15. Please report any bugs to https://github.com/randoum/autonumeric-rails
  *
@@ -32,9 +32,16 @@
  * FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
  * OTHER DEALINGS IN THE SOFTWARE.
  */
+
 var AutonumericRails;
 
 window.AutonumericRails = AutonumericRails = (function() {
+    AutonumericRails.create_autonumeric_object = function(obj) {
+        if (!obj.data('autonumeric-initialized')) {
+            return new this(obj);
+        }
+    };
+
     function AutonumericRails(field) {
         this.field = field;
         this.field.data('autonumeric-initialized', true);
@@ -65,15 +72,16 @@ window.AutonumericRails = AutonumericRails = (function() {
 
 window.refresh_autonumeric = function() {
     $('input[data-autonumeric]').each(function() {
-        if (!$(this).data('autonumeric-initialized')) {
-            new window.AutonumericRails($(this));
-        }
+        AutonumericRails.create_autonumeric_object($(this));
     });
 };
 
 jQuery(function() {
-    refresh_autonumeric();
+    window.refresh_autonumeric();
     $(document).on('refresh_autonumeric', function() {
-        refresh_autonumeric();
+        window.refresh_autonumeric();
+    });
+    $(document).on('ajaxComplete', function() {
+        window.refresh_autonumeric();
     });
 });

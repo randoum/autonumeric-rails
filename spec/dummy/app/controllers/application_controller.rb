@@ -1,6 +1,4 @@
 class ApplicationController < ActionController::Base
-  protect_from_forgery with: :exception
-
   def self.create_action(name)
     define_method(name) do
       send :without_record
