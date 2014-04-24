@@ -12,6 +12,12 @@ autoNumeric.js home page and settings generator [http://www.decorplanit.com/plug
 
 The autonumeric-rails simply wrap up autoNumeric.js and in addition provides ujs flavor to autoNumeric.js
 
+- [Installation](#installation)
+- [Usage](#usage)
+- [AJAX](#ajax)
+- [Internal](#internal)
+- [Changes](#changes)
+
 ## Installation
 
 Add this line to your application's Gemfile:
@@ -63,6 +69,20 @@ To do so you must trigger the `refresh_autonumeric` event on `document` after yo
 Autonumeric-rails creates in the DOM an hidden input with the same name as the text field.
 On each modification of the text field value (through the `keyup` event), the hidden input is updated with the sanitized value.
 When validating the form, the hidden field value is sent to the server as it is located after the text field in the DOM.
+
+## Changes
+
+For a full list of change, see the CHANGELOG.ms file
+
+### 1.9.22
+Bind on `ajaxComplete` event, so each jQuery ajax event automatically refresh autonumeric fields. Manually triggering `refresh_autonumeric` is not necessary for rails-ujs (i.e `data-remote`) anymore
+
+### 1.9.18.1
+Implement `refresh_autonumeric` event on `document` for manual update after the DOM has been modified
+
+### 1.9.18.0
+First attempt to implement automatic refresh of autonumeric fields using `DOMNodeInserted`.
+This was not cross-browser compatible and was quickly reverted
     
 ## Contributing
 
