@@ -21,33 +21,33 @@ The autonumeric-rails simply wrap up autoNumeric.js and in addition provides ujs
 ## Installation
 
 Add this line to your application's Gemfile:
-
-    gem 'autonumeric-rails'
-
+``` ruby
+gem 'autonumeric-rails'
+```
 And then execute:
-
-    $ bundle
-
+``` bash
+bundle
+```
 Then add in your `javascript.js` manifest:
-
-    //= require jquery
-    //= require autonumeric
-
+``` 
+//= require jquery
+//= require autonumeric
+```
 ## Usage
 
 Simply add `data-autonumeric` attribute to your HTML tag to initialize autoNumeric  
 with its default values:
-
-    <%= form_for @model do |f| %>
-        <%= f.text_field :field, data: {autonumeric: true} %>
-    <% end %>
-
+``` erb
+<%= form_for @model do |f| %>
+  <%= f.text_field :field, data: {autonumeric: true} %>
+<% end %>
+``` 
 You can also pass autoNumeric configuration parameters directly with a Hash in your HTML tag:
-
-    <%= form_for @model do |f| %>
-        <%= f.text_field :field, data: {autonumeric: {aSign: 'USD ', mDec: 0}} %>
-    <% end %>
-    
+``` erb
+<%= form_for @model do |f| %>
+  <%= f.text_field :field, data: {autonumeric: {aSign: 'USD ', mDec: 0}} %>
+<% end %>
+``` 
 See autoNumeric pages (links above) for all details on configuration and options
 
 ## AJAX
@@ -61,9 +61,9 @@ When a Javascript function generate and add to the DOM new fields with autonumer
 you must manually refresh in order to initialize those new fields.
 
 To do so you must trigger the `refresh_autonumeric` event on `document` after you modified the DOM:
-
-    $(document).trigger('refresh_autonumeric');
-
+``` javascript
+$(document).trigger('refresh_autonumeric');
+```
 ## Internal
 
 Autonumeric-rails creates in the DOM an hidden input with the same name as the text field.
