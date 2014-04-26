@@ -72,7 +72,7 @@ When validating the form, the hidden field value is sent to the server as it is 
 
 ## Changes
 
-For a full list of change, see the CHANGELOG.ms file
+For a full list of change, see the [CHANGELOG.md](https://github.com/randoum/autonumeric-rails/blob/master/CHANGELOG.md) file
 
 ### 1.9.22
 Bind on `ajaxComplete` event, so each jQuery ajax event automatically refresh autonumeric fields. Manually triggering `refresh_autonumeric` is not necessary for rails-ujs (i.e `data-remote`) anymore
