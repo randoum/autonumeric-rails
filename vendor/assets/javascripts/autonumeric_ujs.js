@@ -48,7 +48,7 @@ window.AutonumericRails = AutonumericRails = (function() {
         this.create_hidden_field();
         this.init_autonumeric();
         this.sanitize_value();
-        this.field.on('keyup', $.proxy(function() {
+        this.field.on('keyup blur', $.proxy(function() {
             this.sanitize_value();
         }, this));
     }
