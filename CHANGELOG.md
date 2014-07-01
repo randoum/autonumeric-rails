@@ -1,3 +1,7 @@
+# 1.9.24.0
+
+- Update autoNumeric v 1.9.24
+
 # 1.9.22.1
 
 - Merge PR #4 "Sanitize hidden input on blur event" - Thanks to @tiagoamaro
