@@ -67,7 +67,7 @@ $(document).trigger('refresh_autonumeric');
 ## Internal
 
 Autonumeric-rails creates in the DOM an hidden input with the same name as the text field.
-On each modification of the text field value (through the `keyup` event), the hidden input is updated with the sanitized value.
+On each modification of the text field value (on `keyup` and `blue` events), the hidden input is updated with the sanitized value.
 When validating the form, the hidden field value is sent to the server as it is located after the text field in the DOM.
 
 ## Changes

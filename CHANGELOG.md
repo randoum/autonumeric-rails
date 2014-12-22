@@ -1,3 +1,8 @@
+# 1.9.27
+
+- Update autoNumeric v 1.9.27
+- Update development gems and rspec syntax to v3
+
 # 1.9.25.0
 
 - Update autoNumeric v 1.9.25
