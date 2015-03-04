@@ -6,8 +6,10 @@ describe 'Autonumeric-rails', type: :feature, js: true do
 
   let(:params) { {aSign: 'USD ', mDec: 1}.to_json }
 
-  before { visit "/#{url}#{record_id}" }
-  before { wait_for_jquery }
+  before {
+    visit "/#{url}#{record_id}"
+    wait_for_jquery
+  }
 
   context 'Through form helper' do
     let(:url) { 'static_fields' }

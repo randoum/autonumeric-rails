@@ -21,6 +21,10 @@ require 'headless'
 Capybara.ignore_hidden_elements = false
 
 RSpec.configure do |config|
+  # Focus
+  config.run_all_when_everything_filtered = true
+  config.filter_run focus: true
+
   # Use fixtures
   config.fixture_path = "#{::Rails.root}/spec/fixtures"
 
