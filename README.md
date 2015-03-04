@@ -64,6 +64,17 @@ To do so you must trigger the `refresh_autonumeric` event on `document` after yo
 ``` javascript
 $(document).trigger('refresh_autonumeric');
 ```
+
+## Disable autonumeric-rails and autoNumeric
+
+You can disable autonumeric-rails and autoNumeric from an object and turn it back into a simple input element by calling
+`AutonumericRails.delete_autonumeric_object` and passing the targeted jQuery object to it:
+``` javascript
+element = $("#field");
+AutonumericRails.delete_autonumeric_object(element);
+```
+This will not un-sanitize the field's value, and you must do it manually.
+
 ## Internal
 
 Autonumeric-rails creates in the DOM an hidden input with the same name as the text field.
@@ -73,6 +84,9 @@ When validating the form, the hidden field value is sent to the server as it is 
 ## Changes
 
 For a full list of change, see the [CHANGELOG.md](https://github.com/randoum/autonumeric-rails/blob/master/CHANGELOG.md) file
+
+### 1.9.33.1
+Add class method `delete_autonumeric_object` to disable autonumeric-rails and autoNumeric attributes from an object
 
 ### 1.9.22
 Bind on `ajaxComplete` event, so each jQuery ajax event automatically refresh autonumeric fields. Manually triggering `refresh_autonumeric` is not necessary for rails-ujs (i.e `data-remote`) anymore

@@ -1,7 +1,7 @@
 /**
  * autonumeric_ujs.js
  * @author: randoum
- * @version: 1.9.33 - 2015-03-04
+ * @version: 1.9.33.1 - 2015-03-05
  *
  * Created by Randoum on 2013-08-15. Please report any bugs to https://github.com/randoum/autonumeric-rails
  *
@@ -40,6 +40,13 @@ window.AutonumericRails = AutonumericRails = (function() {
         if (!obj.data('autonumeric-initialized')) {
             return new this(obj);
         }
+    };
+
+    AutonumericRails.delete_autonumeric_object = function(obj) {
+      if (obj.data('autonumeric-initialized')) {
+        obj.removeData('autonumeric-initialized').removeData('autonumeric').removeAttr('data-autonumeric').off('keyup blur').autoNumeric('destroy');
+        $('input#' + obj.attr('id') + '_val[type="hidden"][name="' + obj.attr('name') + '"]').remove();
+      }
     };
 
     function AutonumericRails(field) {
