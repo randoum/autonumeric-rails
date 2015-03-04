@@ -70,10 +70,10 @@ $(document).trigger('refresh_autonumeric');
 You can disable autonumeric-rails and autoNumeric from an object and turn it back into a simple input element by calling
 `AutonumericRails.delete_autonumeric_object` and passing the targeted jQuery object to it:
 ``` javascript
-element = $("#field");
+var element = $("#field");
 AutonumericRails.delete_autonumeric_object(element);
 ```
-This will not un-sanitize the field's value, and you must do it manually.
+**Note**: This will not un-sanitize the field's value, and you must do it manually.
 
 ## Internal
 
