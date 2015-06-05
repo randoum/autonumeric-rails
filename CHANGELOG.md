@@ -1,3 +1,7 @@
+### 1.9.37
+
+- Update autoNumeric v 1.9.37
+
 ### 1.9.33.1
 
 - add class method delete_autonumeric_object

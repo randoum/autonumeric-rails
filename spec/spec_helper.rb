@@ -1,4 +1,5 @@
 ENV['RAILS_ENV'] ||= 'test'
+LOCAL_PLATFORM = (Gem::Platform.local.os == 'darwin' ? :mac : :linux)
 
 # Load environment
 require File.expand_path('../dummy/config/environment', __FILE__)
@@ -46,9 +47,11 @@ RSpec.configure do |config|
   config.after(:each) { DatabaseCleaner.clean }
 
   # Headless for selenium driver
-  config.before(:each, js: true) {
-    headless = Headless.new
-    headless.start
-    at_exit { headless.destroy }
-  }
+  if LOCAL_PLATFORM == :linux
+    config.before(:each, js: true) {
+      headless = Headless.new
+      headless.start
+      at_exit { headless.destroy }
+    }
+  end
 end
