@@ -1,5 +1,5 @@
 module Autonumeric
   module Rails
-    VERSION = '1.9.39'
+    VERSION = '1.9.42'
   end
 end

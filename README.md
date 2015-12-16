@@ -48,7 +48,7 @@ You can also pass autoNumeric configuration parameters directly with a Hash in y
   <%= f.text_field :field, data: {autonumeric: {aSign: 'USD ', mDec: 0}} %>
 <% end %>
 ``` 
-See autoNumeric pages (links above) for all details on configuration and options
+See [autoNumeric page](https://github.com/BobKnothe/autoNumeric) for all details on configuration and options.
 
 ## AJAX
 

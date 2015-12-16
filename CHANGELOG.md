@@ -1,3 +1,7 @@
+### 1.9.42
+
+- Update autoNumeric v 1.9.42
+
 ### 1.9.39
 
 - Update autoNumeric v 1.9.39
