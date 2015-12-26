@@ -13,7 +13,7 @@
 
 ActiveRecord::Schema.define(version: 20131227002328) do
 
-  create_table "records", force: true do |t|
+  create_table "records", force: :cascade do |t|
     t.decimal "field1", precision: 10, scale: 8
     t.decimal "field2", precision: 10, scale: 8
   end

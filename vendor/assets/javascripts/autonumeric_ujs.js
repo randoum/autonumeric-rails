@@ -1,7 +1,7 @@
 /**
  * autonumeric_ujs.js
  * @author: randoum
- * @version: 1.9.39 - 2015-08-01
+ * @version: 1.9.43 - 2015-12-26
  *
  * Created by Randoum on 2013-08-15. Please report any bugs to https://github.com/randoum/autonumeric-rails
  *

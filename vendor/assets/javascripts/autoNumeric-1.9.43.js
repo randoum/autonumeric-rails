@@ -2,7 +2,7 @@
  * autoNumeric.js
  * @author: Bob Knothe
  * @author: Sokolov Yura
- * @version: 1.9.42 - 2015-11-20 GMT 3:00 PM / 15:00
+ * @version: 1.9.43 - 2015-12-19 GMT 4:00 PM / 16:00
  *
  * Created by Robert J. Knothe on 2010-10-25. Please report any bugs to https://github.com/BobKnothe/autoNumeric
  * Contributor by Sokolov Yura on 2010-11-07
@@ -32,7 +32,18 @@
  * FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
  * OTHER DEALINGS IN THE SOFTWARE.
  */
-(function ($) {
+(function (factory) {
+  if (typeof define === "function" && define.amd) {
+    /** AMD. Register as an anonymous module. */
+    define(["jquery"], factory);
+  } else if (typeof module === "object" && module.exports) {
+    /** Node/CommonJS */
+    module.exports = factory(require("jquery"));
+  } else {
+    /** Browser globals */
+    factory(window.jQuery);
+  }
+}(function ($) {
   "use strict";
   /*jslint browser: true*/
   /*global jQuery: false*/
@@ -42,6 +53,7 @@
   /**
    * Cross browser routine for getting selected range/cursor position
    */
+
   function getElementSelection(that) {
     var position = {};
     if (that.selectionStart === undefined) {
@@ -62,6 +74,7 @@
   /**
    * Cross browser routine for setting selected range/cursor position
    */
+
   function setElementSelection(that, start, end) {
     if (that.selectionStart === undefined) {
       that.focus();
@@ -82,6 +95,7 @@
    * - a function, which invoked with jQuery element, parameters and this parameter name and returns parameter value
    * - a name of function, attached to $(selector).autoNumeric.functionName(){} - which was called previously
    */
+
   function runCallbacks($this, settings) {
     /**
      * loops through the settings object (option array) to find the following
@@ -103,8 +117,9 @@
   /**
    * Converts the vMin, vMax & mDec string to numeric value
    */
+
   function convertKeyToNumber(settings, key) {
-    if (typeof (settings[key]) === 'string') {
+    if (typeof(settings[key]) === 'string') {
       settings[key] *= 1;
     }
   }
@@ -113,6 +128,7 @@
    * Preparing user defined options for further usage
    * merge them with defaults appropriately
    */
+
   function autoCode($this, settings) {
     runCallbacks($this, settings);
     settings.tagList = ['b', 'caption', 'cite', 'code', 'dd', 'del', 'div', 'dfn', 'dt', 'em', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'ins', 'kdb', 'label', 'li', 'output', 'p', 'q', 's', 'sample', 'span', 'strong', 'td', 'th', 'u', 'var'];
@@ -159,6 +175,7 @@
   /**
    * strips all unwanted characters and leave only a number alert
    */
+
   function autoStrip(s, settings, strip_zero) {
     if (settings.aSign) { /** remove currency sign */
       while (s.indexOf(settings.aSign) > -1) {
@@ -198,6 +215,7 @@
    * places or removes brackets on negative values
    * works only when with pSign: 'p'
    */
+
   function negativeBracket(s, settings) {
     if (settings.pSign === 'p') {
       var brackets = settings.nBracket.split(',');
@@ -215,6 +233,7 @@
   /**
    * function to handle numbers less than 0 that are stored in Exponential notation ex: .0000001 stored as 1e-7
    */
+
   function checkValue(value, settings) {
     if (value) {
       var checkSmall = +value;
@@ -247,6 +266,7 @@
   /**
    * prepare number string to be converted to real number
    */
+
   function fixNumber(s, aDec, aNeg) {
     if (aDec && aDec !== '.') {
       s = s.replace(aDec, '.');
@@ -263,6 +283,7 @@
   /**
    * prepare real number to be converted to our format
    */
+
   function presentNumber(s, aDec, aNeg) {
     if (aNeg && aNeg !== '-') {
       s = s.replace('-', aNeg);
@@ -276,6 +297,7 @@
   /**
    * private function to check for empty value
    */
+
   function checkEmpty(iv, settings, signOnEmpty) {
     if (iv === '' || iv === settings.aNeg) {
       if (settings.wEmpty === 'zero') {
@@ -292,6 +314,7 @@
   /**
    * private function that formats our number
    */
+
   function autoGroup(iv, settings) {
     iv = autoStrip(iv, settings);
     var testNeg = iv.replace(',', '.'),
@@ -345,6 +368,7 @@
    * please note this handled as text - JavaScript math function can return inaccurate values
    * also this offers multiple rounding methods that are not easily accomplished in JavaScript
    */
+
   function autoRound(iv, settings) { /** value to string */
   iv = (iv === '') ? '0' : iv.toString();
     convertKeyToNumber(settings, 'mDec'); /** set mDec to number needed when mDec set by 'update method */
@@ -354,7 +378,7 @@
     var ivRounded = '',
         i = 0,
         nSign = '',
-        rDec = (typeof (settings.aPad) === 'boolean' || settings.aPad === null) ? (settings.aPad ? settings.mDec : 0) : +settings.aPad;
+        rDec = (typeof(settings.aPad) === 'boolean' || settings.aPad === null) ? (settings.aPad ? settings.mDec : 0) : +settings.aPad;
     var truncateZeros = function (ivRounded) { /** truncate not needed zeros */
     var regex = (rDec === 0) ? (/(\.(?:\d*[1-9])?)0*$/) : rDec === 1 ? (/(\.\d(?:\d*[1-9])?)0*$/) : new RegExp('(\\.\\d{' + rDec + '}(?:\\d*[1-9])?)0*$');
       ivRounded = ivRounded.replace(regex, '$1'); /** If there are no decimal places, we don't need a decimal point at the end */
@@ -464,6 +488,7 @@
   /**
    * truncate decimal part of a number
    */
+
   function truncateDecimal(s, settings, paste) {
     var aDec = settings.aDec,
         mDec = settings.mDec;
@@ -489,6 +514,7 @@
    * and lays between settings.vMin and settings.vMax
    * and the string length does not exceed the digits in settings.vMin and settings.vMax
    */
+
   function autoCheck(s, settings) {
     s = autoStrip(s, settings);
     s = truncateDecimal(s, settings);
@@ -500,6 +526,7 @@
   /**
    * Holder object for field properties
    */
+
   function AutoNumericHolder(that, settings) {
     this.settings = settings;
     this.that = that;
@@ -862,6 +889,7 @@
   /**
    * thanks to Anthony & Evan C
    */
+
   function autoGet(obj) {
     if (typeof obj === 'string') {
       obj = obj.replace(/\[/g, "\\[").replace(/\]/g, "\\]");
@@ -876,6 +904,7 @@
    * function to attach data to the element
    * and imitate the holder
    */
+
   function getHolder($that, settings, update) {
     var data = $that.data('autoNumeric');
     if (!data) {
@@ -903,8 +932,10 @@
     init: function (options) {
       return this.each(function () {
         var $this = $(this),
-            settings = $this.data('autoNumeric'), /** attempt to grab 'autoNumeric' settings, if they don't exist returns "undefined". */
-            tagData = $this.data(), /** attempt to grab HTML5 data, if they don't exist we'll get "undefined".*/
+            settings = $this.data('autoNumeric'),
+            /** attempt to grab 'autoNumeric' settings, if they don't exist returns "undefined". */
+            tagData = $this.data(),
+            /** attempt to grab HTML5 data, if they don't exist we'll get "undefined".*/
             $input = $this.is('input[type=text], input[type=hidden], input[type=tel], input:not([type])');
         if (typeof settings !== 'object') { /** If we couldn't grab settings, create them from defaults and passed options. */
         settings = $.extend({}, $.fn.autoNumeric.defaults, tagData, options, {
@@ -1216,10 +1247,14 @@
           formParts = formFields.split('&'),
           formIndex = $('form').index($this),
           allFormElements = $('form:eq(' + formIndex + ')'),
-          aiIndex = [], /* all input index */
-          scIndex = [], /* successful control index */
-          rsubmitterTypes = /^(?:submit|button|image|reset|file)$/i, /* from jQuery serialize method */
-          rsubmittable = /^(?:input|select|textarea|keygen)/i, /* from jQuery serialize method */
+          aiIndex = [],
+      /* all input index */
+          scIndex = [],
+      /* successful control index */
+          rsubmitterTypes = /^(?:submit|button|image|reset|file)$/i,
+      /* from jQuery serialize method */
+          rsubmittable = /^(?:input|select|textarea|keygen)/i,
+      /* from jQuery serialize method */
           rcheckableType = /^(?:checkbox|radio)$/i,
           rnonAutoNumericTypes = /^(?:button|checkbox|color|date|datetime|datetime-local|email|file|image|month|number|password|radio|range|reset|search|submit|time|url|week)/i,
           count = 0;
@@ -1280,10 +1315,14 @@
           formFields = $this.serializeArray(),
           formIndex = $('form').index($this),
           allFormElements = $('form:eq(' + formIndex + ')'),
-          aiIndex = [], /* all input index */
-          scIndex = [], /* successful control index */
-          rsubmitterTypes = /^(?:submit|button|image|reset|file)$/i, /* from jQuery serialize method */
-          rsubmittable = /^(?:input|select|textarea|keygen)/i, /* from jQuery serialize method */
+          aiIndex = [],
+      /* all input index */
+          scIndex = [],
+      /* successful control index */
+          rsubmitterTypes = /^(?:submit|button|image|reset|file)$/i,
+      /* from jQuery serialize method */
+          rsubmittable = /^(?:input|select|textarea|keygen)/i,
+      /* from jQuery serialize method */
           rcheckableType = /^(?:checkbox|radio)$/i,
           rnonAutoNumericTypes = /^(?:button|checkbox|color|date|datetime|datetime-local|email|file|image|month|number|password|radio|range|reset|search|submit|time|url|week)/i,
           count = 0;
@@ -1462,4 +1501,4 @@
      */
     anDefault: null
   };
-}(jQuery));
+}));
