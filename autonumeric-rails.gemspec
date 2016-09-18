@@ -28,6 +28,6 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'rspec-html-matchers'
   spec.add_development_dependency 'database_cleaner'
   spec.add_development_dependency 'capybara'
-  spec.add_development_dependency 'selenium-webdriver'
+  spec.add_development_dependency 'selenium-webdriver', '2.53.4'
   spec.add_development_dependency 'headless'
 end

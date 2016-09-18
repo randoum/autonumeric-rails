@@ -2,7 +2,7 @@
  * autoNumeric.js
  * @author: Bob Knothe
  * @author: Sokolov Yura
- * @version: 1.9.43 - 2015-12-19 GMT 4:00 PM / 16:00
+ * @version: 1.9.46 - 2016-09-11 GMT 10:00 PM / 22:00
  *
  * Created by Robert J. Knothe on 2010-10-25. Please report any bugs to https://github.com/BobKnothe/autoNumeric
  * Contributor by Sokolov Yura on 2010-11-07
@@ -880,8 +880,10 @@
           position -= settingsClone.aSign.length;
         }
       }
-      this.that.value = value;
-      this.setPosition(position);
+      if (this.that.value !== value) {
+        this.that.value = value;
+        this.setPosition(position);
+      }
       this.formatted = true;
     }
   };
@@ -1036,7 +1038,8 @@
           $this.on('keyup.autoNumeric', function (e) {
             holder = getHolder($this);
             holder.init(e);
-            var skip = holder.skipAllways(e);
+            var skip = holder.skipAllways(e),
+                tab = holder.kdCode;
             holder.kdCode = 0;
             delete holder.valuePartsBeforePaste;
             if ($this[0].value === holder.settings.aSign) { /** added to properly place the caret when only the currency is present */
@@ -1045,6 +1048,8 @@
               } else {
                 setElementSelection(this, holder.settings.aSign.length, holder.settings.aSign.length);
               }
+            } else if (tab === 9) {
+              setElementSelection(this, 0, $this.val().length);
             }
             if (skip) {
               return true;
@@ -1113,8 +1118,8 @@
     destroy: function () {
       return $(this).each(function () {
         var $this = $(this);
-        $this.off('.autoNumeric');
         $this.removeData('autoNumeric');
+        $this.off('.autoNumeric');
       });
     },
 
@@ -1151,7 +1156,7 @@
      * must contain only numbers and one decimal (period) character
      */
     set: function (valueIn) {
-      if (valueIn === null) {
+      if (valueIn === null || isNaN(valueIn)) {
         return;
       }
       return $(this).each(function () {

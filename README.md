@@ -53,7 +53,7 @@ See [autoNumeric page](https://github.com/BobKnothe/autoNumeric) for all details
 ## AJAX
 
 autonumeric-rails looks for `ajaxComplete` events which are trigger by jQuery every time an Ajax request finishes.
-As a result, rails-ujs elements (i.e. `data-remote` elements) now automatically initialize autonumeric fields after the AJAX request is complete.
+As a result, rails-ujs elements (i.e. `data-remote` elements) automatically initialize autonumeric fields after the AJAX request is complete.
 
 ## Javascript DOM manipulation
 
@@ -78,7 +78,7 @@ AutonumericRails.delete_autonumeric_object(element);
 ## Internal
 
 Autonumeric-rails creates in the DOM an hidden input with the same name as the text field.
-On each modification of the text field value (on `keyup` and `blue` events), the hidden input is updated with the sanitized value.
+On each modification of the text field value (on `keyup` and `blur` events), the hidden input is updated with the sanitized value.
 When validating the form, the hidden field value is sent to the server as it is located after the text field in the DOM.
 
 ## Changes
