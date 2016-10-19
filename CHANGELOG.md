@@ -1,4 +1,4 @@
-### 1.9.46.1
+### 1.9.46.2
 
 - Remove simlink in spec folder structure to fix bug with rubygem affecting install on Heroku and the 'listen' gem 
 
