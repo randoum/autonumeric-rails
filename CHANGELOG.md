@@ -1,3 +1,7 @@
+### 1.9.46.1
+
+- Remove simlink in spec folder structure to fix bug with rubygem affecting install on Heroku and the 'listen' gem 
+
 ### 1.9.46
 
 - Update autoNumeric v 1.9.46

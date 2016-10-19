@@ -14,7 +14,7 @@ Gem::Specification.new do |spec|
   spec.license       = 'MIT'
 
   spec.files         = `git ls-files`.split($/)
-  spec.test_files    = `git ls-files -- test/*`.split($/)
+  spec.test_files    = `git ls-files -- spec/*`.split($/)
   spec.require_paths = ['lib']
 
   spec.add_dependency 'jquery-rails', '>= 2.0.2'

@@ -5,7 +5,6 @@ LOCAL_PLATFORM = (Gem::Platform.local.os == 'darwin' ? :mac : :linux)
 require File.expand_path('../dummy/config/environment', __FILE__)
 
 require 'rspec/rails'
-#require 'rspec/autorun'
 
 # Requires support files
 Dir[Rails.root.join('spec/support/**/*.rb')].each { |f| require f }
@@ -25,9 +24,6 @@ RSpec.configure do |config|
   # Focus
   config.run_all_when_everything_filtered = true
   config.filter_run focus: true
-
-  # Use fixtures
-  config.fixture_path = "#{::Rails.root}/spec/fixtures"
 
   # Let database cleaner do the DB cleaning job
   config.use_transactional_fixtures = false
