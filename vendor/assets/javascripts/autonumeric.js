@@ -1,2 +1,2 @@
-//= require autoNumeric-1.9.46.js
+//= require autoNumeric-2.0.js
 //= require autonumeric_ujs.js

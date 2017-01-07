@@ -1,7 +1,7 @@
 /**
  * autonumeric_ujs.js
  * @author: randoum
- * @version: 2.0 - 2017-01-07
+ * @version: 1.9.43 - 2015-12-26
  *
  * Created by Randoum on 2013-08-15. Please report any bugs to https://github.com/randoum/autonumeric-rails
  *
@@ -70,7 +70,7 @@ window.AutonumericRails = AutonumericRails = (function() {
     };
 
     AutonumericRails.prototype.sanitize_value = function() {
-        this.hidden.val(this.field.autoNumeric('getSettings').rawValue);
+        this.hidden.val(this.field.autoNumeric('get'));
     };
 
     return AutonumericRails;

@@ -1,10 +1,28 @@
+shared_examples 'test autonumeric-rails version' do
+  context 'Through form helper' do
+    let(:url) { 'static_fields' }
+    it_behaves_like 'all autonumeric-rails tests'
+  end
+
+  context 'Javascript manually created fields' do
+    let(:url) { 'javascript_fields' }
+    it_behaves_like 'all autonumeric-rails tests'
+  end
+
+  context 'AJAX request created fields' do
+    let(:url) { 'ajax_fields' }
+    it_behaves_like 'all autonumeric-rails tests'
+  end
+end
+
+
 shared_examples 'all autonumeric-rails tests' do
   context 'Without DB' do
     let(:record_id) { '' }
 
     it 'Input tag' do
       assert_selector(%q{input#record_field1[name='record[field1]'][data-autonumeric='true']})
-      assert_selector("input#record_field2[name='record[field2]'][data-autonumeric='#{params}']")
+      assert_selector("input#record_field2[name='record[field2]'][data-autonumeric='#{expected_params}']")
     end
 
     it 'Hidden tags' do
@@ -61,7 +79,15 @@ shared_examples 'all autonumeric-rails tests' do
 
     it 'Loads record and set values' do
       expect(find('#record_field1').value).to eq('112,233.00')
-      expect(find('#record_field1_val').value).to eq('112233')
+
+      if test_version == '1'
+        expect(find('#record_field1_val').value).to eq('112233')
+      elsif test_version == '2'
+        expect(find('#record_field1_val').value).to eq('112233.00') # Default output changed with v2
+      else
+        raise "Not handled version #{test_version}. Please add test case"
+      end
+
 
       expect(find('#record_field2').value).to eq('USD 445,566.7')
       expect(find('#record_field2_val').value).to eq('445566.7')
@@ -93,7 +119,7 @@ shared_examples 'all autonumeric-rails tests' do
 
     it 'Input tag' do
       assert_selector(%q{input#record_field1[name='record[field1]']:not([data-autonumeric])})
-      assert_selector("input#record_field2[name='record[field2]'][data-autonumeric='#{params}']")
+      assert_selector("input#record_field2[name='record[field2]'][data-autonumeric='#{expected_params}']")
     end
 
     it 'Hidden tags' do

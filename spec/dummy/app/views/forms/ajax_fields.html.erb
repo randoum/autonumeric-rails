@@ -3,7 +3,7 @@
 <script>
   jQuery(function() {
     $.ajax({
-      url: '/get_content_from_ajax<%= @url_prefix %>',
+      url: '/get_content_from_ajax<%= @url_prefix %>?test_version=<%= @test_version %>',
       dataType: 'script'
     });
   });

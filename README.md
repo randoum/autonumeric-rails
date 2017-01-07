@@ -33,6 +33,9 @@ Then add in your `javascript.js` manifest:
 //= require jquery
 //= require autonumeric
 ```
+If you prefer using version 1.9.46 instead of 2.x version, replace `require autonumeric` 
+by `require autonumeric1` in your javascript manifest.
+
 ## Usage
 
 Simply add `data-autonumeric` attribute to your HTML tag to initialize autoNumeric  
@@ -84,6 +87,9 @@ When validating the form, the hidden field value is sent to the server as it is 
 ## Changes
 
 For a full list of change, see the [CHANGELOG.md](https://github.com/randoum/autonumeric-rails/blob/master/CHANGELOG.md) file
+
+### 2.0
+Update autoNumeric v 2.0. The previous version 1.9.46 is still available for compatibility.
 
 ### 1.9.33.1
 Add class method `delete_autonumeric_object` to disable autonumeric-rails and autoNumeric attributes from an object

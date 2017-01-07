@@ -4,26 +4,21 @@ describe 'Autonumeric-rails', type: :feature, js: true do
 
   subject { page }
 
-  let(:params) { {aSign: 'USD ', mDec: 1}.to_json }
+  let(:expected_params) { {aSign: 'USD ', mDec: 1}.to_json }
 
   before {
-    visit "/#{url}#{record_id}"
+    visit "/#{url}#{record_id}?test_version=#{test_version}"
     wait_for_jquery
   }
 
-  context 'Through form helper' do
-    let(:url) { 'static_fields' }
-    it_behaves_like 'all autonumeric-rails tests'
+  describe 'autoNumeric version 1' do
+    let(:test_version) { '1' }
+    it_behaves_like 'test autonumeric-rails version'
   end
 
-  context 'Javascript manually created fields' do
-    let(:url) { 'javascript_fields' }
-    it_behaves_like 'all autonumeric-rails tests'
-  end
-
-  context 'AJAX request created fields' do
-    let(:url) { 'ajax_fields' }
-    it_behaves_like 'all autonumeric-rails tests'
+  describe 'autoNumeric version 2' do
+    let(:test_version) { '2' }
+    it_behaves_like 'test autonumeric-rails version'
   end
 
 end
