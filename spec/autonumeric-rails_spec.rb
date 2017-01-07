@@ -1,6 +1,4 @@
 require 'spec_helper'
-require 'wait_for_jquery'
-require 'shared_examples'
 
 describe 'Autonumeric-rails', type: :feature, js: true do
 

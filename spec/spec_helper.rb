@@ -1,5 +1,6 @@
 ENV['RAILS_ENV'] ||= 'test'
 LOCAL_PLATFORM = (Gem::Platform.local.os == 'darwin' ? :mac : :linux)
+SPEC_ROOT = File.expand_path('..', __FILE__)
 
 # Load environment
 require File.expand_path('../dummy/config/environment', __FILE__)
@@ -7,7 +8,7 @@ require File.expand_path('../dummy/config/environment', __FILE__)
 require 'rspec/rails'
 
 # Requires support files
-Dir[Rails.root.join('spec/support/**/*.rb')].each { |f| require f }
+Dir[Rails.root.join(SPEC_ROOT, 'support/**/*.rb')].each { |f| require f }
 
 # Load database cleaner
 require 'database_cleaner'
@@ -15,7 +16,17 @@ require 'database_cleaner'
 # Load capybara and its dependencies
 require 'capybara/rspec'
 require 'capybara/rails'
+require 'selenium-webdriver'
 require 'headless'
+
+# Set firefox path
+Capybara.register_driver :selenium do |app|
+  Selenium::WebDriver::Firefox::Binary.path = firefox_path
+  cap = Selenium::WebDriver::Remote::Capabilities.firefox(marionette: false)
+  Capybara::Selenium::Driver.new app,
+                                 browser: :firefox,
+                                 desired_capabilities: cap
+end
 
 # Capybara to consider hidden elements
 Capybara.ignore_hidden_elements = false

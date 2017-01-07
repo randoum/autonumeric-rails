@@ -19,4 +19,4 @@ test/version_tmp
 tmp
 .ruby-version
 .rbenv-gemsets
-vendor/assets/javascripts/autonumeric_ujs.js.coffee
+spec/firefox_path

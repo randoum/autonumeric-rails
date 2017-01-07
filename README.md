@@ -102,6 +102,8 @@ This was not cross-browser compatible and was quickly reverted
 
 1. Fork it
 2. Create your feature branch (`git checkout -b my-new-feature`)
-3. Commit your changes (`git commit -am 'Add some feature'`)
-4. Push to the branch (`git push origin my-new-feature`)
-5. Create new Pull Request
+3. Download firefox ESR in a directory of your choice (do not need to be your main firefox install). Create the file 
+_<gem_dir>/spec/firefox_path_ and fill it with the full path of firefox executable
+4. Commit your changes (`git commit -am 'Add some feature'`)
+5. Push to the branch (`git push origin my-new-feature`)
+6. Create new Pull Request
