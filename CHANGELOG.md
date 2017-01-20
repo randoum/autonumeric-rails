@@ -1,3 +1,7 @@
+### 2.0.0.1
+
+- Fix #11 and #12
+
 ### 2.0
 
 - Update autoNumeric v 2.0
