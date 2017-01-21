@@ -20,12 +20,14 @@ require 'selenium-webdriver'
 require 'headless'
 
 # Set firefox path
-Capybara.register_driver :selenium do |app|
-  Selenium::WebDriver::Firefox::Binary.path = firefox_path unless !!ENV['TRAVIS']
-  cap = Selenium::WebDriver::Remote::Capabilities.firefox(marionette: false)
-  Capybara::Selenium::Driver.new app,
-                                 browser: :firefox,
-                                 desired_capabilities: cap
+unless !!ENV['TRAVIS']
+  Capybara.register_driver :selenium do |app|
+    Selenium::WebDriver::Firefox::Binary.path = firefox_path
+    cap = Selenium::WebDriver::Remote::Capabilities.firefox(marionette: false)
+    Capybara::Selenium::Driver.new app,
+                                   browser: :firefox,
+                                   desired_capabilities: cap
+  end
 end
 
 # Capybara to consider hidden elements
