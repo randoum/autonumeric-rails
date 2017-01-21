@@ -21,7 +21,7 @@ require 'headless'
 
 # Set firefox path
 Capybara.register_driver :selenium do |app|
-  Selenium::WebDriver::Firefox::Binary.path = firefox_path
+  Selenium::WebDriver::Firefox::Binary.path = firefox_path unless !!ENV['TRAVIS']
   cap = Selenium::WebDriver::Remote::Capabilities.firefox(marionette: false)
   Capybara::Selenium::Driver.new app,
                                  browser: :firefox,
